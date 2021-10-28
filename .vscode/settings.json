@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "boolean.h": "c",
+    "buildinglocation.h": "c",
+    "paket.h": "c",
+    "nodepaket.h": "c",
+    "stdlib.h": "c"
+  }
+}
