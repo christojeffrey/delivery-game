@@ -1,69 +1,69 @@
 #include "orderList.h"
 
-void CreateOrderList(orderList *q)
+void CreateOrderList(orderList *ol)
 /* I.S. sembarang */
-/* F.S. Sebuah q kosong terbentuk dengan kondisi sbb: */
+/* F.S. Sebuah ol kosong terbentuk dengan kondisi sbb: */
 /* - Index oLhead bernilai -1 */
 /* - Index tail bernilai -1 */
-/* Proses : Melakukan alokasi, membuat sebuah q kosong */
+/* Proses : Melakukan alokasi, membuat sebuah ol kosong */
 {
-    oLIDX_HEAD(*q) = -1;
-    oLIDX_TAIL(*q) = -1;
+    oLIDX_HEAD(*ol) = -1;
+    oLIDX_TAIL(*ol) = -1;
 }
 
 /* ********* Prototype ********* */
-boolean isOrderListEmpty(orderList q)
-/* Mengirim true jika q kosong: lihat definisi di atas */
+boolean isOrderListEmpty(orderList ol)
+/* Mengirim true jika ol kosong: lihat definisi di atas */
 {
-    return oLIDX_HEAD(q) == -1;
+    return oLIDX_HEAD(ol) == -1;
 }
-boolean isOrderListFull(orderList q)
-/* Mengirim true jika tabel penampung elemen q sudah penuh */
+boolean isOrderListFull(orderList ol)
+/* Mengirim true jika tabel penampung elemen ol sudah penuh */
 /* yaitu jika index oLhead bernilai 0 dan index tail bernilai 40-1 */
 {
-    return oLIDX_HEAD(q) == 0 && oLIDX_TAIL(q) == 39;
+    return oLIDX_HEAD(ol) == 0 && oLIDX_TAIL(ol) == 39;
 }
-int lengthOrderList(orderList q)
-/* Mengirimkan banyaknya elemen orderList. Mengirimkan 0 jika q kosong. */
+int lengthOrderList(orderList ol)
+/* Mengirimkan banyaknya elemen orderList. Mengirimkan 0 jika ol kosong. */
 {
-    return (isOrderListEmpty(q)) ? 0 : (oLIDX_TAIL(q) - oLIDX_HEAD(q) + 1);
+    return (isOrderListEmpty(ol)) ? 0 : (oLIDX_TAIL(ol) - oLIDX_HEAD(ol) + 1);
 }
 /* *** Primitif Add/Delete *** */
-void enqueueOrderList(orderList *q, paket val)
-/* Proses: Menambahkan val pada q dengan aturan FIFO */
-/* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
+void enqueueOrderList(orderList *ol, paket val)
+/* Proses: Menambahkan val pada ol dengan aturan FIFO */
+/* I.S. ol mungkin kosong, tabel penampung elemen ol TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, oLIDX_TAIL "mundur".
-        Jika q penuh semu, maka perlu dilakukan aksi penggeseran "maju" elemen-elemen q
+        Jika ol penuh semu, maka perlu dilakukan aksi penggeseran "maju" elemen-elemen ol
         menjadi rata kiri untuk membuat ruang kosong bagi TAIL baru  */
 {
-    if (isOrderListEmpty(*q)){
-        oLIDX_HEAD(*q) = 0;
-        oLIDX_TAIL(*q) = 0;
+    if (isOrderListEmpty(*ol)){
+        oLIDX_HEAD(*ol) = 0;
+        oLIDX_TAIL(*ol) = 0;
     } else { 
-        if (oLIDX_TAIL(*q) == 40 - 1) for (int i = oLIDX_HEAD(*q);  i < oLIDX_TAIL(*q); i++) (*q).buffer[i-oLIDX_HEAD(*q)] = (*q).buffer[i]; //kalo mentok geser duls ges
+        if (oLIDX_TAIL(*ol) == 40 - 1) for (int i = oLIDX_HEAD(*ol);  i < oLIDX_TAIL(*ol); i++) (*ol).buffer[i-oLIDX_HEAD(*ol)] = (*ol).buffer[i]; //kalo mentok geser duls ges
         int i = 0;
-        while ((TIME((*q).buffer[i]) <= TIME(val)) && i < lengthOrderList(*q))
+        while ((TIME((*ol).buffer[i]) <= TIME(val)) && i < lengthOrderList(*ol))
         {
             i++;
         }
-        for (int j = lengthOrderList(*q) - 1; j > i; j--) (*q).buffer[j] = (*q).buffer[j-1];
-        (*q).buffer[i] = val;
-        oLIDX_TAIL(*q)++;
+        for (int j = lengthOrderList(*ol) - 1; j > i; j--) (*ol).buffer[j] = (*ol).buffer[j-1];
+        (*ol).buffer[i] = val;
+        oLIDX_TAIL(*ol)++;
     }
 }
 
-void dequeueOrderList(orderList *q, paket *val)
-/* Proses: Menghapus val pada q dengan aturan FIFO */
-/* I.S. q tidak mungkin kosong */
+void dequeueOrderList(orderList *ol, paket *val)
+/* Proses: Menghapus val pada ol dengan aturan FIFO */
+/* I.S. ol tidak mungkin kosong */
 /* F.S. val = nilai elemen oLHEAD pd I.S., oLHEAD dan oLIDX_HEAD "mundur"; 
-        q mungkin kosong */
+        ol mungkin kosong */
 {
-    *val = oLHEAD(*q);
+    *val = oLHEAD(*ol);
 
-    if (oLIDX_HEAD(*q) == oLIDX_TAIL(*q)){
-        oLIDX_HEAD(*q) = -1;
-        oLIDX_TAIL(*q) = -1;
+    if (oLIDX_HEAD(*ol) == oLIDX_TAIL(*ol)){
+        oLIDX_HEAD(*ol) = -1;
+        oLIDX_TAIL(*ol) = -1;
     } else{
-        oLIDX_HEAD(*q)++;
+        oLIDX_HEAD(*ol)++;
     }
 }
