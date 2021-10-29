@@ -19,30 +19,45 @@
 
 //import fungsi-fungsi command
 #include "command/command_HELP.h"
-
+#include "command/command_MOVE.h"
+//import fungsi lain
+#include "fungsi/gameStateInput.h"
+#include "fungsi/commandInput.h"
+#include "fungsi/intInput.h"
+#include "fungsi/isContinue.h"
 
 int main(){
-    /*+++++ LOAD STATUS GAME +++++*/
-    gameState status;
-    //anggep ini ngeload, status sudah lengkap isinya berdasarkan file yang diinput
+    printf("this is welcome screen\n");
+    printf("ketik 1 untuk new game, pilih 2 untuk exit\n");
+    int menuOption = intInput();
+    if(menuOption == 1){
+        /*+++++ LOAD STATUS GAME +++++*/
+        gameState status;
+        boolean continueFlag = true;
 
-    //buat ilustrasi, misalkan input command disimpan di variabel command
-    char command[100];
-    boolean flag = true;
-    while(true){
-        /*+++++ INPUT COMMAND +++++*/
-        //inputing command from user..
-        //now command sudah berisi input dari user
+        gameStateInput(&status);
+        while(continueFlag){
+            /*+++++ INPUT COMMAND +++++*/
+            int command = commandInput();
 
-        /*+++++ MENJALANKAN COMMAND +++++*/
-        if (command == 'HELP'){
-            command_HELP(&status);
+            /*+++++ MENJALANKAN COMMAND +++++*/
+            if (command == 1){
+                command_MOVE(&status);
+            }
+            else if(command == 'MAP'){
+                command_MAP(&status);
+            }
+            //...
+            
+            /*+++++ CEK KEBERLANGSUNGAN GAME +++++*/
+            continueFlag = isContinue(status);
         }
-        else if(command == 'MAP'){
-            command_MAP(&status);
-        }
-        //dan else if else if lainnya
-
-        flag = isContinue(status);
     }
+    else if (menuOption == 2){
+        printf("sampai jumpa\n");
+    }
+    else{
+        printf("hanya menerima input satu dan dua. program ditutup\n");
+    }
+    
 }
