@@ -1,24 +1,38 @@
+
+#ifndef __pAKET__H__
+#define __pAKET__H__
+
 #include "location.h"
 
-/*
-ADT paket berisi
-waktu kedatangan, dalam integer.
-lokasi pickup.
-lokasi drop off.
-char item. N normal, H heavy, P perishable, V VIP.
-
-keempat hal tersebut wajib memiliki isi, tidak bisa kosong
-untuk perishTime, hanya digunakan jika item Perishable. Jika tidak, akan menyimpan value -1
-*/
-
-typedef struct{
-    int timeArrival;
-    location pickupLoc;
-    location dropoffLoc;
-    char itemType;
-    int perishTime;
+typedef struct paket
+{
+    int t;
+    char pickup;
+    char dropoff;
+    char item;
+    int exp;
 }paket;
 
-paket makePaket(int time,location pickup, location dropoff, char itemtype, int perishtime);
-/* membuat sebuah paket. mengembalikan sebuah paket yang isinya sudah lengkap sesuai input.
-kalau itemtype bukan yg bisa perish, tidak perduli inputnya apa, perishtime di paket yang di return jadi -1*/
+/* Selektor Makro */
+#define TIME(P) (P).t
+#define PICK_UP(P) (P).pickup
+#define DROP_OFF(P) (P).dropoff
+#define TIPE(P) (P).item
+#define EXP(P) (P).exp
+
+
+
+void createPaket(paket * P, int t, char p, char d, char i, int e);
+/* Membuat paket */
+/* I.S P sembarang */
+/* F.S TIME(P) = t, PICK_UP(P) = p, DROP_OFF(P) = d, TIPE(P) = i, EXP(P) = e. */
+/* EXP(P) = -1 jika item bukan bertipe Perishable*/
+
+building getPLocation(paket P, buildingList bl);
+/* Mencari titik lokasi Pickup P */
+/* prekondisi, PICK_UP(P) adalah Point yang valid dalam game */
+
+building getDLocation(paket P, buildingList bl);
+/* Mencari titik lokasi Dropoff P */
+/* prekondisi, DROP_OFF(P) adalah Point yang valid dalam game */
+#endif  //!__PAKET__H__

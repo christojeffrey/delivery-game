@@ -15,6 +15,13 @@ typedef struct{
     //modification of priority queue
 }orderList;
 
+/* Seleketor Makro */
+#define oLIDX_HEAD(q) (q).idxHead
+#define oLIDX_TAIL(q) (q).idxTail
+#define     oLHEAD(q) (q).buffer[(q).idxHead]
+#define     oLTAIL(q) (q).buffer[(q).idxTail]
+
+
 void CreateOrderList(orderList *ol);
 /* I.S. sembarang */
 /* F.S. Sebuah ol kosong terbentuk dengan kondisi sbb: */
@@ -24,6 +31,9 @@ void CreateOrderList(orderList *ol);
 
 boolean isOrderListEmpty(orderList ol);
 /* Mengirim true jika pq kosong: lihat definisi di atas */
+
+boolean isOrderListFull(orderList ol);
+/* Mengirim true jika pq Full: lihat definisi di atas */
 
 int lengthOrderList(orderList ol);
 /* Mengirimkan banyaknya paket dalam ol. Mengirimkan 0 jika ol kosong. */

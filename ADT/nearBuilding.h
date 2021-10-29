@@ -7,6 +7,10 @@ contents akan bernilai 1 jika terhubung, bernilai 0 jika tidak(persis seperti in
 */
 #ifndef NEAR_BUILDING_H
 #define NEAR_BUILDING_H
+
+#include "buildingList.h"
+#include "location.h"
+
 typedef struct{
    int contents[30][30];
    int rowcolEff; 
@@ -17,9 +21,17 @@ typedef struct{
 
 /* ********** DEFINISI PROTOTIPE PRIMITIF ********** */
 /* *** Konstruktor membentuk nearBuilding *** */
-void CreateMatrix(int rowcol, nearBuilding *nb);
+void CreatenearBuilding(int rowcol, nearBuilding *nb);
 /* Membentuk sebuah nearbulding yang semuad datanya 0 yang siap diisi berukuran nRow x nCol di "ujung kiri" memori */
 /* I.S. rowcol valid untuk memori matriks yang dibuat */
 /* F.S. nearbuilding nb sesuai dengan definisi di atas terbentuk */
+
+/* *** Selektor *** */
+#define nBSIZE(M) (M).rowcolEff
+#define nBELMT(M, i, j) (M).contents[(i)][(j)]
+
+buildingList getMove(nearBuilding nb, location p);
+/* mencari move legal dari suatu posisi */
+
 
 #endif

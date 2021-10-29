@@ -8,13 +8,14 @@ PALING KECIL ITU 1,1. GADA 0,0. CEK SPEK KALO RAGU
 #define LOCATION_H
 
 typedef struct{
-	float X; /* absis   */
-	float Y; /* ordinat */
+	int X; /* absis   */
+	int Y; /* ordinat */
     //modification of point (atau kalau gk dimodif juga gapapa, tergantung kebutuhan)
 }location;
 
 /* *** DEFINISI PROTOTIPE PRIMITIF *** */
 
-location makeLocation(float X, float Y);
+location makeLocation(int X, int Y);
 /* Membentuk sebuah loccation dari komponen-komponennya */
+
 #endif
