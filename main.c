@@ -48,7 +48,7 @@ int main(){
                 command_MAP(&status);
             }
             //...
-            
+
             /*+++++ CEK KEBERLANGSUNGAN GAME +++++*/
             continueFlag = isContinue(status);
         }
@@ -58,6 +58,5 @@ int main(){
     }
     else{
         printf("hanya menerima input satu dan dua. program ditutup\n");
-    }
-    
+    }   
 }
