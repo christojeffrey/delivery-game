@@ -1,3 +1,3 @@
 //jef
 #include "../ADT/gameState.h"
-void command_HELP();
+void command_BUY(gameState* status);
