@@ -4,6 +4,7 @@
 //include ADT
 #include "../ADT/boolean.h"
 #include "../ADT/buildingList.h"
+#include "../ADT/orderList.h"
 
 #define BLANK ' '
 #define MARK ';'
@@ -177,7 +178,7 @@ void gameStateInput(gameState *State1){
     //MENULISKAN LOKASI BANGUNAN SELESAI
     // printf("INPUT LOKASI BUILDING SELESAI\n");
     (*State1).bangunanSekitar.rowcolEff = jumlahVar+1;
-    printf("%d\n",(*State1).bangunanSekitar.rowcolEff);
+    printf("%d ",(*State1).bangunanSekitar.rowcolEff);
     printf("%d\n",(*State1).bangunanSekitar.rowcolEff);
     int rowId = 0;
     int colId = 0;
@@ -196,18 +197,18 @@ void gameStateInput(gameState *State1){
     int jumlahOrder = currentToken;
     printf("%d\n",jumlahOrder);
     int order = 0;
-    (*State1).orders.idxTail=-1;
-    (*State1).orders.idxHead=-1;
+
+    CreateOrderList(&(State1 -> orders));
     while (order<jumlahOrder){
         advToken();
         (*State1).orders.buffer[order].t = currentToken;
         printf("%d ", (*State1).orders.buffer[order].t);
         advWord();
         (*State1).orders.buffer[order].pickup = *currentWord.contents;
-        printf("%c ", currentChar);
+        printf("%c ", (*State1).orders.buffer[order].pickup);
         advWord();
         (*State1).orders.buffer[order].dropoff = *currentWord.contents;
-        printf("%c ", currentChar);
+        printf("%c ", (*State1).orders.buffer[order].dropoff);
         advWord();
         (*State1).orders.buffer[order].item = *currentWord.contents;
         printf("%c ", (*State1).orders.buffer[order].item);
