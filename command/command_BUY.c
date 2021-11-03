@@ -1,6 +1,6 @@
 //jef
-#include "command_BUY.h"
 #include "../fungsi/intInput.h"
+#include "command.h"
 
 #include<stdio.h>
 void command_BUY(gameState* status){

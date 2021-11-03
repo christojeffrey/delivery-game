@@ -1,12 +1,12 @@
 //jef
-#include "command_MAP.h"
+#include "command.h"
 
 #include "../ADT/boolean.h"
 #include "../ADT/nodePaket.h"
 
 #include "../pcolor/pcolor.h"
 
-#include<stdio.h>
+#include <stdio.h>
 
 //FUNGSI ATAU PROSEDUR TAMBAHAN
 char isThereBuildingInThisLoc(buildingList bl, int x, int y){

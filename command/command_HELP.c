@@ -1,5 +1,5 @@
 //jef
-#include "command_HELP.h"
+#include "command.h"
 
 void command_HELP(){
     printf("berikut pilihan command yang dapat dilakukan\n");
