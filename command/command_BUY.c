@@ -1,5 +1,5 @@
 //jef
-#include "command_BUY.h"
+#include "command.h"
 
 void command_BUY(gameState* status){
     
