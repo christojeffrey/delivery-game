@@ -42,7 +42,7 @@ void enqueueOrderList(orderList *ol, paket val)
     } else { 
         if (oLIDX_TAIL(*ol) == 40 - 1) for (int i = oLIDX_HEAD(*ol);  i < oLIDX_TAIL(*ol); i++) (*ol).buffer[i-oLIDX_HEAD(*ol)] = (*ol).buffer[i]; //kalo mentok geser duls ges
         int i = 0;
-        while ((TIME((*ol).buffer[i]) <= TIME(val)) && i < lengthOrderList(*ol))
+        while ((pTIME((*ol).buffer[i]) <= pTIME(val)) && i < lengthOrderList(*ol))
         {
             i++;
         }
