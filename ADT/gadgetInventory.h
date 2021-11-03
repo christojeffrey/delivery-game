@@ -8,7 +8,7 @@ dengan masing-masing index merepresentasikan gadget yang berbeda.
     index 2 - pintu kemana saja
     index 3 - mesin waktu 
     index 4 - senter pengecil
-Kalo ada itemnya, brarti diisi 1. Kalo gada itemnya, diisi 0
+Kalo ada itemnya, brarti diisi 11(atau 2 kalau item yang dimiliki 2 buah, dst). Kalo gada itemnya, diisi 0
 */
 
 #ifndef GADGET_INVENTORY_H

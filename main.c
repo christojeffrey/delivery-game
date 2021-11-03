@@ -32,7 +32,8 @@
 int main(){
     printf("this is welcome screen\n");
     printf("ketik 1 untuk new game, pilih 2 untuk exit\n");
-    int menuOption = intInput();
+    // int menuOption = intInput();
+    int menuOption = 1;
     if(menuOption == 1){
         /*+++++ LOAD STATUS GAME +++++*/
         gameState status;
@@ -41,19 +42,19 @@ int main(){
         gameStateInput(&status);
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
-            int command = commandInput();
+            // int command = commandInput();
 
             /*+++++ MENJALANKAN COMMAND +++++*/
-            if (command == 1){
-                command_MOVE(&status);
-            }
-            else if(command == 2){
-                command_MAP(status);
-            }
-            //...
+            // if (command == 1){
+            //     command_MOVE(&status);
+            // }
+            // else if(command == 2){
+            //     command_MAP(status);
+            // }
+            // //...
 
-            /*+++++ CEK KEBERLANGSUNGAN GAME +++++*/
-            continueFlag = isContinue(status);
+            // /*+++++ CEK KEBERLANGSUNGAN GAME +++++*/
+            // continueFlag = isContinue(status);
         }
     }
     else if (menuOption == 2){

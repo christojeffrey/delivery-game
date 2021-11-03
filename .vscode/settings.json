@@ -7,6 +7,7 @@
     "stdlib.h": "c",
     "orderlist.h": "c",
     "building.h": "c",
-    "nearbuilding.h": "c"
+    "nearbuilding.h": "c",
+    "buildinglist.h": "c"
   }
 }

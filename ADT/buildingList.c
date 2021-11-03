@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "buildingList.h"
 #include "building.h"
+#include<stdlib.h>
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create list kosong  */
 void createBuildingList(buildingList *bl, int capacity)
@@ -74,7 +75,7 @@ void copyBuildingList(buildingList lIn, buildingList *lOut)
 /* F.S. lOut berisi salinan dari lIn (identik, nEff dan capacity sama) */
 /* Proses : Menyalin isi lIn ke lOut */
 {
-    CreateListDin(lOut, bLCAPACITY(lIn));
+    createBuildingList(lOut, bLCAPACITY(lIn));
     for (int i = 0; i < bLNEFF(lIn); i++) bLELMT(*lOut, i) = bLELMT(lIn, i);
     bLNEFF(*lOut) = bLNEFF(lIn);
 }
