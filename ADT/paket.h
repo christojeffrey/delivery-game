@@ -1,9 +1,11 @@
 
-#ifndef __pAKET__H__
-#define __pAKET__H__
+#ifndef __PAKET__H__
+#define __PAKET__H__
 
 #include "location.h"
-
+#include "buildingList.h"
+#include "building.h"
+#include "nearBuilding.h"
 typedef struct paket
 {
     int t;
@@ -14,11 +16,11 @@ typedef struct paket
 }paket;
 
 /* Selektor Makro */
-#define TIME(P) (P).t
-#define PICK_UP(P) (P).pickup
-#define DROP_OFF(P) (P).dropoff
-#define TIPE(P) (P).item
-#define EXP(P) (P).exp
+#define pTIME(P) (P).t
+#define pPICK_UP(P) (P).pickup
+#define pDROP_OFF(P) (P).dropoff
+#define pTIPE(P) (P).item
+#define pEXP(P) (P).exp
 
 
 

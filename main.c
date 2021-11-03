@@ -1,6 +1,6 @@
 
 //import ADT
-#include "boolean.h"
+#include "ADT/boolean.h"
 
 #include"ADT/gameState.h"
 
@@ -15,17 +15,20 @@
 #include "ADT/orderList.h"
 #include "ADT/paket.h"
 #include "ADT/todoList.h"
-// #include "ADT/orderList.h"
+#include "ADT/orderList.h"
 
 //import fungsi-fungsi command
 #include "command/command_HELP.h"
 #include "command/command_MOVE.h"
+#include "command/command_MAP.h"
+
 //import fungsi lain
 #include "fungsi/gameStateInput.h"
 #include "fungsi/commandInput.h"
 #include "fungsi/intInput.h"
 #include "fungsi/isContinue.h"
 
+#include<stdio.h>
 int main(){
     printf("this is welcome screen\n");
     printf("ketik 1 untuk new game, pilih 2 untuk exit\n");
@@ -44,8 +47,8 @@ int main(){
             if (command == 1){
                 command_MOVE(&status);
             }
-            else if(command == 'MAP'){
-                command_MAP(&status);
+            else if(command == 2){
+                command_MAP(status);
             }
             //...
 

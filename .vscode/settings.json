@@ -4,6 +4,9 @@
     "buildinglocation.h": "c",
     "paket.h": "c",
     "nodepaket.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "orderlist.h": "c",
+    "building.h": "c",
+    "nearbuilding.h": "c"
   }
 }

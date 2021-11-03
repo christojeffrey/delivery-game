@@ -19,7 +19,7 @@ typedef struct{
     int time;
     int money;
     float speedBoost;
-    location MyLoc;
+    location myLoc;
     location hq;
     orderList orders;
     todoList todos;
