@@ -11,7 +11,7 @@ typedef struct paket
     int t;
     char pickup;
     char dropoff;
-    char item;
+    char item; //pilihannya apa aja? sesuai spek
     int exp;
     //tambahan total persihTime.
     /*

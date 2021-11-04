@@ -54,7 +54,19 @@ void command_INVENTORY(gameState* status){
             // index 0 - pembungkus waktu
             // Setiap kain pembungkus waktu dapat dipakai sekali untuk perishable item
             // teratas pada tas agar kembali ke durasi semula.
-            status->inventory.items[idxItem] -= 1;
+
+            //jika topnya perishable, maka bisa dilakukan something
+            if(status->tas.buffer[status->tas.idxTop].item == 'P'){
+                int expireTimeLama = status->tas.buffer[status->tas.idxTop].exp;
+                status->tas.buffer[status->tas.idxTop].exp = status->tas.buffer[status->tas.idxTop].totalPerishTime;
+                int expireTimeBaru = status->tas.buffer[status->tas.idxTop].exp;
+                printf("Gadget berhasil digunakan!\n");
+                printf("Waktu expire heavy item di top of bag berubah dari %d menjadi %d\n", expireTimeLama, expireTimeBaru);
+                status->inventory.items[idxItem] -= 1;
+            }
+            else{
+                printf("top of bag bukan perishable item. Gadget gagal digunakan.\n");
+            }
 
         }
         else if(idxItem == 1){
