@@ -14,6 +14,7 @@ void createPaket(paket * P, int t, char p, char d, char i, int e)
     pDROP_OFF(*P) = d;
     pTIPE(*P) = i;
     pEXP(*P) = e;
+    pTPT(*P) = e;
 }
 
 building getPLocation(paket P, buildingList bl)

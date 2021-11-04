@@ -13,6 +13,12 @@ typedef struct paket
     char dropoff;
     char item;
     int exp;
+    //tambahan total persihTime.
+    /*
+    jadi total Perish Time itu konstan, diem terus. yg Exp, menurun setiap waktu berjalan.
+    alasan keberadaan totalperishtime adalah agar bisa menggunakan gadget pembungkus waktu
+    */
+    int totalPerishTime;
 }paket;
 
 /* Selektor Makro */
@@ -21,7 +27,7 @@ typedef struct paket
 #define pDROP_OFF(P) (P).dropoff
 #define pTIPE(P) (P).item
 #define pEXP(P) (P).exp
-
+#define pTPT(P) (P).totalPerishTime
 
 
 void createPaket(paket * P, int t, char p, char d, char i, int e);
