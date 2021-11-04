@@ -26,30 +26,71 @@ void command_BUY(gameState* status){
                 printf("silakan melihat dan menggunakan gadget dengan command INVENTORY.\n");
             }
             else{
+                int harga = 0;
                 if (pilihan == 1){
-                    printf("Kamu memilih 1. Kain Pembungkus Waktu dengan harga 800 Yen\n");
+                    harga = 800;
+                    printf("Kamu memilih 1. Kain Pembungkus Waktu dengan harga %d Yen\n", harga);
                     if(status->money < 800){
                         printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
-                        printf("sedangkan harga gadgetnya adalah 800 Yen.\n");
+                        printf("sedangkan harga gadget adalah %d Yen.\n", harga);
                         printf("Uang yang kamu miliki tidak mencukupi.");
                     }
                     else{
                         //uang mencukupi
-                        status->money = status->money - 800;
+                        status->money = status->money - harga;
+                        printf("Berhasil membeli gadget 1. Kain Pembungkus Waktu!\n");
+                        printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
+                        printf("Uang kamu berubah menjadi %d\n", status->money);
+                    }
+                }//end of pilihan == 1
+                else if(pilihan == 2){
+                    harga = 1200;
+                    printf("Kamu memilih 2. Senter Pembesar dengan harga %d Yen\n", harga);
+                    if(status->money < harga){
+                        printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
+                        printf("sedangkan harga gadget adalah %d Yen.\n", harga);
+                        printf("Uang yang kamu miliki tidak mencukupi.");
+                    }
+                    else{
+                        //uang mencukupi
+                        status->money = status->money - harga;
                         printf("Berhasil membeli gadget 1. Kain Pembungkus Waktu!\n");
                         printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
 
                         printf("Uang kamu berubah menjadi %d\n", status->money);
                     }
-                }//end of pilihan == 1
-                else if(pilihan == 2){
-
                 }//end of pilihan == 2
                 else if(pilihan == 3){
-
+                    harga = 1500;
+                    printf("Kamu memilih 3. Pintu Kemana Saja dengan harga %d Yen\n", harga);
+                    if(status->money < 800){
+                        printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
+                        printf("sedangkan harga gadget adalah %d Yen.\n", harga);
+                        printf("Uang yang kamu miliki tidak mencukupi.");
+                    }
+                    else{
+                        //uang mencukupi
+                        status->money = status->money - harga;
+                        printf("Berhasil membeli gadget 3. Pintu Kemana Saja!\n");
+                        printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
+                        printf("Uang kamu berubah menjadi %d\n", status->money);
+                    }
                 }//end of pilihan == 3
                 else if(pilihan == 4){
-
+                    harga = 3000;
+                    printf("Kamu memilih 4. Mesin Waktu dengan harga %d Yen\n", harga);
+                    if(status->money < 800){
+                        printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
+                        printf("sedangkan harga gadget adalah %d Yen.\n", harga);
+                        printf("Uang yang kamu miliki tidak mencukupi.");
+                    }
+                    else{
+                        //uang mencukupi
+                        status->money = status->money - harga;
+                        printf("Berhasil membeli gadget 4. Mesin Waktu!\n");
+                        printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
+                        printf("Uang kamu berubah menjadi %d\n", status->money);
+                    }
                 }//end of pilihan == 4
 
             }

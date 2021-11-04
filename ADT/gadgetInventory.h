@@ -7,7 +7,7 @@ dengan masing-masing index merepresentasikan gadget yang berbeda.
     index 1 - senter pembesar
     index 2 - pintu kemana saja
     index 3 - mesin waktu 
-    index 4 - senter pengecil
+    index 4 - senter pengecil // ini bonus.
 Kalo ada itemnya, brarti diisi 11(atau 2 kalau item yang dimiliki 2 buah, dst). Kalo gada itemnya, diisi 0
 */
 
