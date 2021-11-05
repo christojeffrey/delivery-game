@@ -3,7 +3,7 @@
 #ifndef IN_PROGRESS_LIST_H
 #define IN_PROGRESS_LIST_H
 
-#include "boolean.h"
+#include "boolean.h" 
 #include "nodePaket.h"
 
 

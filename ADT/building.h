@@ -4,7 +4,7 @@ ADT yang isinya pair value, char nama building dan location
 
 contoh building
 name 'A'
-loc (3,4)
+loc (3,4) 
 */
 #ifndef BUILDING_H
 #define BUILDING_H

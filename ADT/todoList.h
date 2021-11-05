@@ -1,5 +1,3 @@
-
-
 #ifndef TODO_LIST_H
 #define TODO_LIST_H
 
@@ -26,8 +24,6 @@ boolean isTodoListEmpty(todoList tl);
 int lengthTodoList(todoList tl);
 /* Mengirimkan banyaknya elemen list; mengirimkan 0 jika tl kosong */
 
-
-
 /*** PENAMBAHAN ELEMEN ***/
 void insertFirstTodoList(todoList *tl, paket val);
 /* I.S. tl mungkin kosong */
@@ -39,16 +35,16 @@ void insertLastTodoList(todoList *tl, paket val);
 /* menambahkan elemen list di akhir: elemen terakhir val
  jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
-
 /*** PENGHAPUSAN ELEMEN ***/
 void deleteFirstTodoList(todoList *tl, paket *val);
 /* I.S. tl tidak kosong  */
 /* F.S. Elemen pertama list dihapus: nilai info disimpan pada val */
+
 /*      dan alamat elemen pertama di-dealokasi */
+
 void deleteLastTodoList(todoList *tl, paket *val);
 /* I.S. tl tidak kosong */
 /* F.S. Elemen terakhir list dihapus: nilai info disimpan pada val */
 /*      dan alamat elemen terakhir di-dealokasi */
-
 
 #endif
