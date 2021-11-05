@@ -159,6 +159,7 @@ void gameStateInput(gameState *State1){
 
     createBuildingList(&(State1->buildings), jumlahVar);
     int var = 0;
+    (*State1).buildingCount = jumlahVar;
     (*State1).buildings.capacity = jumlahVar;
     (*State1).buildings.nEff = jumlahVar;
     while (var<jumlahVar){
