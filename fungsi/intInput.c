@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "machine.c"
+#include "machine.h"
 
 int intInput(){
     //Kalau dimasukkin huruf nanti keluarnya 0
