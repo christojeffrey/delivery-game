@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include "../ADT/boolean.h"
-
-#define BLANK ' '
-#define MARK ';'
-#define CAPACITY 100
-
-typedef struct {
-    char contents[CAPACITY];
-    int length;
-}Word;
+#include "machine.h"
 
 typedef int Token;
 Token currentToken;
