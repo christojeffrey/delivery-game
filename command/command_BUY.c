@@ -8,7 +8,7 @@ void command_BUY(gameState* status){
     if(status->myLoc.X == status->hq.X && status->myLoc.Y == status->myLoc.Y){
         printf("Uang anda sekarang : %d Yen\n", status->money);
         printf("gadget yang tersedia : \n");
-        pritnf("1. Kain Pembungkus Waktu (800 Yen)\n");
+        printf("1. Kain Pembungkus Waktu (800 Yen)\n");
         printf("2. Senter Pembesar (1200 Yen)\n");
         printf("3. Pintu Kemana Saja (1500 Yen)\n");
         printf("4. Mesin Waktu (3000 Yen)\n");

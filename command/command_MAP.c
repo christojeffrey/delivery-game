@@ -17,7 +17,7 @@ char isThereBuildingInThisLoc(buildingList bl, int x, int y){
             return bl.buffer[i].name;
         }
     }
-    return "0";
+    return '0';
 }
 
 int cekLokasiKhusus(gameState status, char b, char m){
@@ -83,13 +83,13 @@ void command_MAP(gameState status){
             else if(status.hq.X == b && status.hq.Y == k){
                 if(status.hq.X == status.myLoc.X && status.hq.Y == status.myLoc.Y){
                     //print HQ kuning(harusnya kuning itu myloc, dikasus ini, tapi HQ = myLoc)
-                    print_yellow("8");
+                    print_yellow('8');
                 }
                 //if HQ itu bisa dalam jangkauan destinasi myloc, 
                 //myloc pasti bukan HQ, karena sudah ke catch diatas
                 else if(status.bangunanSekitar.contents[namaMyLoc - 'A' + 1][0]){
                     //ijo
-                    print_green("8");
+                    print_green('8');
                 }
                 else{
                     //print HQ biasa(item)
@@ -115,7 +115,7 @@ void command_MAP(gameState status){
                     print_green(namaB);
                 }
                 else{
-                    printf(namaB);
+                    printf("%c",namaB);
                 }
             }
         }

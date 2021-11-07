@@ -21,15 +21,19 @@ static int retval;
 
 void adv(){
     retval = fscanf(tape,"%c",&currentChar);
+    printf("curent char adv awl= %c\n", currentChar);
     if (currentChar == MARK){
         fclose(tape);
     }
+    printf("curent char adv akhir= %c\n", currentChar);
 }
 
 void ignoreBlank(){
+    printf("currentchar seb = %c\n", currentChar);
     while (currentChar == BLANK || currentChar == '\n'){
         adv();
     }
+    printf("currentchar sudah = %c\n", currentChar);
 }
 
 void start(){
@@ -97,16 +101,20 @@ void copyToken(){
 }
 
 void advToken(){
+    printf("testign advToken\n");
     ignoreBlank();
+
     if(currentChar == MARK){
         endToken = true;
     }
     else{
         copyToken();
     }
+    printf("testign advToken selesai\n");
 }
 
 void startToken(){
+    printf("testing starttoken\n");
     start();
     ignoreBlank();
     if (currentChar != MARK){

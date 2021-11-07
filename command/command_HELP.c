@@ -1,6 +1,6 @@
 //jef
 #include "command.h"
-
+#include<stdio.h>
 void command_HELP(){
     printf("berikut pilihan command yang dapat dilakukan\n");
     printf("1. MOVE         -> berpindah ke lokasi selanjutnya\n");

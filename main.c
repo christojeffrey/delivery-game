@@ -18,9 +18,7 @@
 #include "ADT/orderList.h"
 
 //import fungsi-fungsi command
-#include "command/command_HELP.h"
-#include "command/command_MOVE.h"
-#include "command/command_MAP.h"
+#include "command/command.h"
 
 //import fungsi lain
 #include "fungsi/gameStateInput.h"
@@ -31,25 +29,28 @@
 #include<stdio.h>
 int main(){
     printf("this is welcome screen\n");
-    printf("ketik 1 untuk new game, pilih 2 untuk exit\n");
-    // int menuOption = intInput();
-    int menuOption = 1;
+    printf("ketik 1 untuk new game, pilih 2 untuk exit:\n>");
+    int menuOption = intInput();
     if(menuOption == 1){
         /*+++++ LOAD STATUS GAME +++++*/
         gameState status;
         boolean continueFlag = true;
-
+        
         gameStateInput(&status);
+        printf("loading game...\n");
         while(continueFlag){
+            printf("loading game berhasil\n");
             /*+++++ INPUT COMMAND +++++*/
-            // int command = commandInput();
+            printf("masukkan command:\n");
+            int command = commandInput();
 
             /*+++++ MENJALANKAN COMMAND +++++*/
+            printf("command = %d\n", command);
             // if (command == 1){
-            //     command_MOVE(&status);
+                // command_MOVE(&status);
             // }
             // else if(command == 2){
-            //     command_MAP(status);
+                // command_MAP(status);
             // }
             // //...
 
