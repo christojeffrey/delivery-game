@@ -35,23 +35,34 @@ int main(){
         /*+++++ LOAD STATUS GAME +++++*/
         gameState status;
         boolean continueFlag = true;
-        
-        gameStateInput(&status);
+
         printf("loading game...\n");
+        gameStateInput(&status);
+        //tambahi printf dari game state, untuk memastikan isinya bener.
         while(continueFlag){
-            printf("loading game berhasil\n");
             /*+++++ INPUT COMMAND +++++*/
             printf("masukkan command:\n");
             int command = commandInput();
 
             /*+++++ MENJALANKAN COMMAND +++++*/
             printf("command = %d\n", command);
-            // if (command == 1){
-                // command_MOVE(&status);
-            // }
-            // else if(command == 2){
-                // command_MAP(status);
-            // }
+            // move
+            // pickup
+            // dropoff
+            // map
+            // todo
+            // in prog
+            // buy
+            if (command == 1){
+                printf("command = gaapal");
+            }
+            else if(command == 4){
+                printf("command = map\n");
+                command_MAP(status);
+            }
+            else{
+                printf("command tidak valid. masukkan HELP untuk bantuan\n");
+            }
             // //...
 
             // /*+++++ CEK KEBERLANGSUNGAN GAME +++++*/

@@ -20,6 +20,7 @@ static FILE *tape2;
 static int retval;
 
 void adv(){
+    printf("mau retval\n");
     retval = fscanf(tape,"%c",&currentChar);
     printf("curent char adv awl= %c\n", currentChar);
     if (currentChar == MARK){
@@ -31,7 +32,9 @@ void adv(){
 void ignoreBlank(){
     printf("currentchar seb = %c\n", currentChar);
     while (currentChar == BLANK || currentChar == '\n'){
+        printf("mau adv di ignore blank\n");
         adv();
+        printf("currentchar loop = %c\n", currentChar);
     }
     printf("currentchar sudah = %c\n", currentChar);
 }
@@ -101,13 +104,24 @@ void copyToken(){
 }
 
 void advToken(){
+    char chartemp;
+    fscanf(tape,"%c", &chartemp);
+    printf("char temp = %c\n");
+    fscanf(tape,"%c", &chartemp);
+    printf("char temp = %c\n");
+    fscanf(tape,"%c", &chartemp);
+    printf("char temp = %c\n");
+    fscanf(tape,"%c", &chartemp);
+    printf("char temp = %c\n");
     printf("testign advToken\n");
     ignoreBlank();
 
     if(currentChar == MARK){
         endToken = true;
+        printf("end token true\n");
     }
     else{
+        printf("mau copy token\n");
         copyToken();
     }
     printf("testign advToken selesai\n");

@@ -8,6 +8,7 @@
     "orderlist.h": "c",
     "building.h": "c",
     "nearbuilding.h": "c",
-    "buildinglist.h": "c"
+    "buildinglist.h": "c",
+    "command.h": "c"
   }
 }
