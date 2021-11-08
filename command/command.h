@@ -19,4 +19,4 @@ void command_MOVE(gameState* status);
 
 void command_PICK_UP(gameState* status);
 
-void command_TO_DO(gameState* status);
+void command_TO_DO(gameState status);

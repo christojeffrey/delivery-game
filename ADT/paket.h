@@ -13,7 +13,7 @@ typedef struct paket
     char dropoff;
     char item; //pilihannya apa aja? sesuai spek
     int exp;
-    //tambahan total persihTime.
+    //tambahan total perishTime.
     /*
     jadi total Perish Time itu konstan, diem terus. yg Exp, menurun setiap waktu berjalan.
     alasan keberadaan totalperishtime adalah agar bisa menggunakan gadget pembungkus waktu
