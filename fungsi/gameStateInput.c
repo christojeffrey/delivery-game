@@ -5,6 +5,10 @@
 #include "../ADT/boolean.h"
 #include "../ADT/buildingList.h"
 #include "../ADT/orderList.h"
+#include "../ADT/gadgetInventory.h"
+#include "../ADT/bag.h"
+#include "../ADT/inProgressList.h"
+#include "../ADT/todoList.h"
 #include "machine.h"
 
 #define BLANK ' '
@@ -27,6 +31,10 @@ void gameStateInput(gameState *State1){
         tape = fopen(currentWord.contents,"r");
     }
 
+    CreateInProgressList(&(State1->inProgress));
+    CreateTodoList(&(State1->todos));
+    createGadgetInventory(&(State1->inventory));
+    CreateBag(&(State1->tas));
     (*State1).time = 0;
     (*State1).money = 0;
     (*State1).speedBoost = 0;
