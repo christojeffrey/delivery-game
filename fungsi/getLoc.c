@@ -13,5 +13,5 @@ char getLoc(location l, buildingList list) {
             i++;
         }
     }
-    return "";
+    return ' ';
 }

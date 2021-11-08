@@ -13,7 +13,7 @@ void command_TO_DO(gameState status){
     p = status.todos;
     i = 1;
     while(p->next != NULL) {
-        printf("%d. %c -> %c (%s Item)\n", i, p->info.pickup, p->info.dropoff, p->info.item);
+        printf("%d. %c -> %c (%c Item)\n", i, p->info.pickup, p->info.dropoff, p->info.item);
         i++;
         p = p->next;
     }

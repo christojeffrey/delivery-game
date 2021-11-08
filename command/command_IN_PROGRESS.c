@@ -12,7 +12,7 @@ void command_IN_PROGRESS(gameState status) {
     p = status.inProgress;
     i = 1;
     while(p->next != NULL) {
-        printf("%d. %s Item (Tujuan: %c)\n", i, p->info.item, p->info.dropoff);
+        printf("%d. %c Item (Tujuan: %c)\n", i, p->info.item, p->info.dropoff);
         i++;
         p = p->next;
     }

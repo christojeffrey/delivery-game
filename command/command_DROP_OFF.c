@@ -15,17 +15,17 @@ void command_DROP_OFF(gameState* status){
     currLoc = getLoc(status->myLoc, status->buildings);
     paket = status->tas.buffer[status->tas.idxTop];
     if (paket.dropoff = currLoc) {
-        if (paket.item == "Normal") {
+        if (paket.item == 'N') {
             uang = 200;
-        } else if (paket.item == "Heavy") {
+        } else if (paket.item == 'H') {
             uang = 400;
-        } else if (paket.item == "Perishable") {
+        } else if (paket.item == 'P') {
             uang = 400;
         }
         popBag(&(status->tas), &paket);
-        deleteFirstInProgressList(status->inProgress, &paket);
+        deleteFirstInProgressList(&(status->inProgress), &paket);
         status->money += uang;
-        printf("Pesanan %s Item berhasil diantarkan!\n", paket.item);
+        printf("Pesanan %c Item berhasil diantarkan!\n", paket.item);
         printf("Uang yang didapatkan: %d Yen\n", uang);
     } else {
         printf("Tidak ada pesanan yang dapat diantarkan!\n");
