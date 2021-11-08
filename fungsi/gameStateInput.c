@@ -26,15 +26,19 @@ void gameStateInput(gameState *State1){
         startWord();
         tape = fopen(currentWord.contents,"r");
     }
+
+    (*State1).time = 0;
+    (*State1).money = 0;
+    (*State1).speedBoost = 0;
     //INPUT NAMA FLE SELESAI
     /*------MULAI MENULISKAN GAME STATE------ */
     //MENULISKAN UKURAN MAP DAN KOORDINAT HQ MULAI
     advToken();
-    (*State1).mapWidth = currentToken;
-    printf("%d ", (*State1).mapWidth);
-    advToken();
     (*State1).mapHeight = currentToken;
-    printf("%d\n", (*State1).mapHeight);
+    printf("%d ", (*State1).mapHeight);
+    advToken();
+    (*State1).mapWidth = currentToken;
+    printf("%d\n", (*State1).mapWidth);
     advToken();
     (*State1).hq.X = currentToken;
     printf("%d ", (*State1).hq.X);
