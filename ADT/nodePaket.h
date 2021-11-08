@@ -1,4 +1,4 @@
-
+// ini yang paling standar, penunjuk ke first element, kalo belakang nya null berarti end
 #ifndef NODE_PAKET_H
 #define NODE_PAKET_H
 

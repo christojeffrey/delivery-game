@@ -27,6 +27,12 @@
 #include "fungsi/isContinue.h"
 
 #include<stdio.h>
+
+
+#include "debug.h"
+
+
+
 int main(){
     printf("this is welcome screen\n");
     printf("ketik 1 untuk new game, pilih 2 untuk exit:\n>");
@@ -38,7 +44,11 @@ int main(){
 
         printf("loading game...\n");
         gameStateInput(&status);
+
         //tambahi printf dari game state, untuk memastikan isinya bener.
+        apaIsiGameState(status);
+        //print game state done
+        
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
             printf("masukkan command:\n");
