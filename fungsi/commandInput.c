@@ -35,7 +35,6 @@ int commandInput(){
     else {
         result = -1;
     }
-    printf("%s\n",currentWord.contents);
     return result;
 }
 
