@@ -29,8 +29,8 @@ void command_PICK_UP(gameState* status) {
     if (found) {
         pushBag(&(status->tas), paket);
         insertFirstInProgressList(status->inProgress, paket);
-        printf("Pesanan berupa %s Item berhasil diambil!", paket.item);
+        printf("Pesanan berupa %s Item berhasil diambil!\n", paket.item);
     } else {
-        printf("Pesanan tidak ditemukan!");
+        printf("Pesanan tidak ditemukan!\n");
     }
 }
