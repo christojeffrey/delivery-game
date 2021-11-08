@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 int intInput(){
-    int currentToken;
     //Kalau dimasukkin huruf nanti keluarnya 0
     startToken();
+    printf("%d", currentToken);
     return currentToken;
 }
