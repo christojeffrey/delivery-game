@@ -2,7 +2,6 @@
 #include "../ADT/boolean.h"
 #include "machine.h"
 
-typedef int Token;
 Token currentToken;
 
 boolean endWord;
@@ -12,35 +11,10 @@ Word currentWord;
 
 char currentChar;
 
-extern boolean eot;
-
-static FILE *fp;
-static FILE *tape;
-static FILE *tape2;
-static int retval;
-void adv(){
-    printf("mau retval\n");
-    retval = fscanf(tape,"%c",&currentChar);
-    printf("curent char adv awl= %c\n", currentChar);
-    if (currentChar == MARK){
-        fclose(tape);
-    }
-    printf("curent char adv akhir= %c\n", currentChar);
-}
-
 void ignoreBlank(){
-    printf("currentchar seb = %c\n", currentChar);
     while (currentChar == BLANK || currentChar == '\n'){
-        printf("mau adv di ignore blank\n");
         adv();
-        printf("currentchar loop = %c\n", currentChar);
     }
-    printf("currentchar sudah = %c\n", currentChar);
-}
-
-void start(){
-    tape = stdin;
-    adv();
 }
 
 void emptyWord(){
@@ -103,31 +77,16 @@ void copyToken(){
 }
 
 void advToken(){
-    char chartemp;
-    fscanf(tape,"%c", &chartemp);
-    printf("char temp = %c\n");
-    fscanf(tape,"%c", &chartemp);
-    printf("char temp = %c\n");
-    fscanf(tape,"%c", &chartemp);
-    printf("char temp = %c\n");
-    fscanf(tape,"%c", &chartemp);
-    printf("char temp = %c\n");
-    printf("testign advToken\n");
     ignoreBlank();
-
     if(currentChar == MARK){
         endToken = true;
-        printf("end token true\n");
     }
     else{
-        printf("mau copy token\n");
         copyToken();
     }
-    printf("testign advToken selesai\n");
 }
 
 void startToken(){
-    printf("testing starttoken\n");
     start();
     ignoreBlank();
     if (currentChar != MARK){

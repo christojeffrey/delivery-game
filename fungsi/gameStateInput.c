@@ -11,11 +11,9 @@
 #define MARK ';'
 #define CAPACITY 100
 
-
 void gameStateInput(gameState *State1){
     //initialize gameState mulai
     //masukin disini kalo perlu initialize gameState, kecuali gabisa disini(misal karena di initialize berdasarkan input file)
-
 
     //initalize gameState selesai
     //INPUT NAMA FILE MULAI
@@ -126,4 +124,6 @@ void gameStateInput(gameState *State1){
     printf("%d\n", (*State1).orders.idxHead);
     printf("%d\n", (*State1).orders.idxTail);
 }
+
+
 

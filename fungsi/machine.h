@@ -2,33 +2,21 @@
 #define MACHINE_H 
 
 #include "../ADT/boolean.h"
-
-#define BLANK ' '
-#define MARK ';'
-#define CAPACITY 100
+#include "lettermachine.h"
 
 typedef struct {
     char contents[CAPACITY];
     int length;
-}Word;
+} Word;
 
 typedef int Token;
 
-Token currentToken;
+extern Token currentToken;
 
-boolean endWord;
-boolean endToken;
+extern boolean endWord;
+extern boolean endToken;
 
-Word currentWord;
-
-char currentChar;
-
-extern boolean eot;
-
-static FILE *fp;
-extern FILE *tape;
-static FILE *tape2;
-static int retval;
+extern Word currentWord;
 
 void adv();
 

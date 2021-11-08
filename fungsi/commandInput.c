@@ -1,8 +1,8 @@
-#include <stdio.h>
+#include "commandInput.h"
 #include "machine.h"
+#include <stdio.h>
 
 int commandInput(){
-    //Kalau dimasukkin huruf nanti keluarnya 0
     int result;
     startWord();
     if (currentWord.contents[0] == 'M' && currentWord.contents[1] == 'O' && currentWord.contents[2] == 'V' && currentWord.contents[3] == 'E'){
@@ -38,3 +38,4 @@ int commandInput(){
     printf("%s\n",currentWord.contents);
     return result;
 }
+

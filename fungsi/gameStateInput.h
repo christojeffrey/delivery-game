@@ -1,3 +1,5 @@
+#ifndef GAMESTATEINPUT_H
+#define GAMESTATEINPUT_H
 
 #include "../ADT/gameState.h"
 void gameStateInput(gameState* status);
@@ -17,3 +19,5 @@ WELCOME TO GAME NOBITA STUFF
 
 //jika sudah benar, ambil data2 dalam file tersebut, lalu simpan ke dalam status.
 //diasumsikan text didalam file config sudah sesuai dengan spek
+
+#endif

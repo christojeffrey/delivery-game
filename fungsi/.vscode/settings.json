@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "commandinput.h": "c",
+        "orderlist.h": "c",
+        "stdio.h": "c"
+    }
+}
