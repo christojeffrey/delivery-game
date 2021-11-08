@@ -26,7 +26,7 @@ char currentChar;
 extern boolean eot;
 
 static FILE *fp;
-static FILE *tape;
+extern FILE *tape;
 static FILE *tape2;
 static int retval;
 

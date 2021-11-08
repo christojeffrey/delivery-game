@@ -18,7 +18,6 @@ static FILE *fp;
 static FILE *tape;
 static FILE *tape2;
 static int retval;
-
 void adv(){
     printf("mau retval\n");
     retval = fscanf(tape,"%c",&currentChar);
