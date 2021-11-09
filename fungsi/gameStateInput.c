@@ -21,12 +21,12 @@ void gameStateInput(gameState *State1){
 
     //initalize gameState selesai
     //INPUT NAMA FILE MULAI
-    printf("masukkan nama file(relative terhadap main.c):\n");
+    printf("Masukkan nama file (relatif terhadap main.c):\n> ");
     startWord();
     tape = fopen(currentWord.contents,"r");
 
     while (tape == NULL){
-        printf("TIDAK DITEMUKAN FILE CONFIG DENGAN NAMA TERSEBUT, MASUKKAN LAGI\n");
+        printf("TIDAK DITEMUKAN FILE CONFIG DENGAN NAMA TERSEBUT, MASUKKAN LAGI\n> ");
         startWord();
         tape = fopen(currentWord.contents,"r");
     }

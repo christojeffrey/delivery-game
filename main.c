@@ -35,7 +35,9 @@
 
 int main(){
     printf("this is welcome screen\n");
-    printf("ketik 1 untuk new game, pilih 2 untuk exit:\n>");
+    /* Bicycle ASCII Art */
+    printf("              __\n    ,--.      <__)\n    `- |________7\n        |`.      |\\ \n    .--|. \\     |.\\--.\n    /   j \\ `.7__j__\\  \\ \n   |   o   | (o)____O)  |\n    \\     /   J  \\     /\n    `---'        `---'      hjw\n\n------------------------------------------------\n");
+    printf("Ketik 1 untuk new game, ketik 2 untuk exit:\n> ");
     int menuOption = intInput();
     if(menuOption == 1){
         /*+++++ LOAD STATUS GAME +++++*/
@@ -56,22 +58,47 @@ int main(){
 
             /*+++++ MENJALANKAN COMMAND +++++*/
             printf("command = %d\n", command);
-            // move
-            // pickup
-            // dropoff
-            // map
-            // todo
-            // in prog
-            // buy
+            /* Daftar command dan angkanya: 
+                1. MOVE
+                2. PICK_UP
+                3. DROP_OFF
+                4. MAP
+                5. TO_DO
+                6. IN_PROGRESS
+                7. BUY
+                8. INVENTORY
+                9. HELP
+                Invalid command = -1
+            */
             if (command == 1){
-                printf("command = gaapal");
+                command_MOVE(&status);
             }
-            else if(command == 4){
-                printf("command = map\n");
+            else if (command == 2) {
+                command_PICK_UP(&status);
+            }
+            else if (command == 3) {
+                command_DROP_OFF(&status);
+            }
+            else if (command == 4) {
                 command_MAP(status);
             }
+            else if (command == 5) {
+                command_TO_DO(status);
+            }
+            else if(command == 6){
+                command_IN_PROGRESS(status);
+            }
+            else if (command == 7) {
+                command_BUY(&status);
+            }
+            else if (command == 8) {
+                command_INVENTORY(&status);
+            }
+            else if (command == 9) {
+                command_HELP();
+            }
             else{
-                printf("command tidak valid. masukkan HELP untuk bantuan\n");
+                printf("Command tidak valid. masukkan HELP untuk bantuan\n");
             }
             // //...
 
@@ -80,9 +107,9 @@ int main(){
         }
     }
     else if (menuOption == 2){
-        printf("sampai jumpa\n");
+        printf("Sampai jumpa...\n");
     }
     else{
-        printf("hanya menerima input satu dan dua. program ditutup\n");
+        printf("Hanya menerima input satu dan dua. Program ditutup\n");
     }   
 }
