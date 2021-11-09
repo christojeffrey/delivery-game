@@ -12,19 +12,20 @@ void command_PICK_UP(gameState* status) {
     boolean found;
     /* ALGORITMA */
     currLoc = getLoc(status->myLoc, status->buildings);
+    printf("currLoc: %c\n", currLoc);
     p = status->todos;
     found = false;
     while(p != NULL && !found) {
-        if (p->info.pickup == currLoc) {
-            paket = p->info;
-            if (p->next != NULL) {
-                p->next = p->next->next;
+        if ((p)->info.pickup == currLoc) {
+            paket = (p)->info;
+            if ((p)->next != NULL) {
+                (p)->next = ((p)->next)->next;
             } else {
                 deleteLastTodoList(&(status->todos), &paket);
             }
             found = true;
         }
-        p = p->next;
+        p = (p)->next;
     }
     if (found) {
         pushBag(&(status->tas), paket);
