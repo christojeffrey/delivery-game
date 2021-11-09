@@ -49,11 +49,14 @@ void gameStateInput(gameState *State1){
     printf("%d\n", (*State1).mapWidth);
     advToken();
     (*State1).hq.X = currentToken;
+    (*State1).myLoc.X = currentToken;
     printf("%d ", (*State1).hq.X);
     advToken();
     (*State1).hq.Y = currentToken;
+    (*State1).myLoc.Y = currentToken;
     printf("%d\n", (*State1).hq.Y);
     advToken();
+
     //MENULISKAN UKURAN MAP DAN KOORDINAT HQ SELESAI
 
     //MENULISKAN LOKASI BANGUNAN MULAI
@@ -119,9 +122,11 @@ void gameStateInput(gameState *State1){
         if ((*State1).orders.buffer[order].item == 'P'){
             advToken();
             (*State1).orders.buffer[order].exp = currentToken;
+            (*State1).orders.buffer[order].totalPerishTime = currentToken;
             printf("%d ", (*State1).orders.buffer[order].exp);
         } else {
             (*State1).orders.buffer[order].exp = -1;
+            (*State1).orders.buffer[order].totalPerishTime = -1;
         }
 
         if ((*State1).orders.idxTail==-1 && (*State1).orders.idxHead==-1){
