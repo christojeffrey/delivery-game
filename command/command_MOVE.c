@@ -9,7 +9,7 @@ void command_MOVE(gameState* status) {
     int i, input;
     paket paket;
     /* ALGORITMA */
-    l = getMove(status->bangunanSekitar, status->buildings, status->myLoc);
+    l = getMove(status->bangunanSekitar, status->buildings, status->myLoc,status->hq);
     printf("Posisi yang dapat dicapai:\n");
     for (i=0; i<bLNEFF(l); i++) {
         printf("%d. %c (%d,%d)\n", i+1, bLELMT(l,i).name, bLELMT(l,i).loc.X, bLELMT(l,i).loc.Y);

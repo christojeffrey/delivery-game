@@ -30,7 +30,7 @@ void CreatenearBuilding(int rowcol, nearBuilding *nb);
 #define nBSIZE(M) (M).rowcolEff
 #define nBELMT(M, i, j) (M).contents[(i)][(j)]
 
-buildingList getMove(nearBuilding m, buildingList l, location p);
+buildingList getMove(nearBuilding m, buildingList l, location p,location hq);
 /* mencari move legal dari suatu posisi */
 
 
