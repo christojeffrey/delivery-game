@@ -9,11 +9,12 @@
 #include <stdio.h>
 
 //FUNGSI ATAU PROSEDUR TAMBAHAN
-char isThereBuildingInThisLoc(buildingList bl, int x, int y){
+char isThereBuildingInThisLoc(buildingList bl, int B, int K){
 //mengembalikan char building jika building exist. mengembalikan '0' jika tidak ada.
 //HQ tidak termasuk (jika yg diinputkan x y itu HQ, return 0)
     for(int i = 0; i < bl.nEff;i++){
-        if(bl.buffer[i].loc.X == x && bl.buffer[i].loc.Y == y){
+        // printf("testing %d (%d,%d) dengan (%d,%d)\n", i, bl.buffer[i].loc.X, bl.buffer[i].loc.Y, x,y);
+        if(bl.buffer[i].loc.X == B && bl.buffer[i].loc.Y == K){
             return bl.buffer[i].name;
         }
     }
@@ -73,10 +74,10 @@ void command_MAP(gameState status){
     print_blue('B');
     printf("\n");
     printf("HQ(%d,%d)\n", status.hq.X,status.hq.Y);
-    printf("Myloc(%d,%d)\n", status.myLoc.X,status.myLoc.Y);
     
     //cari nama building myLoc dulu
-    char namaMyLoc = isThereBuildingInThisLoc(status.buildings,status.myLoc.Y,status.myLoc.X);
+    char namaMyLoc = isThereBuildingInThisLoc(status.buildings,status.myLoc.X,status.myLoc.Y);
+    printf("Myloc %c(%d,%d)\n", namaMyLoc, status.myLoc.X,status.myLoc.Y);
     //print bintang awal
     for(int loop = 1;loop <= kolom+2;loop++){
         printf("*");
@@ -108,7 +109,7 @@ void command_MAP(gameState status){
             }
             else if(status.myLoc.X == b && status.myLoc.Y == k){
                 //print kuning
-                printf("myloc\n");
+                // printf("myloc\n");
                 print_yellow(namaMyLoc); 
                 // printf("%c", namaMyLoc);
             }
@@ -119,6 +120,7 @@ void command_MAP(gameState status){
                 //kondisi : Building pasti memiliki nama, building bukan HQ dan bukan myLoc
                 //cek apakah namaB ada di pick up, destination drop off, atau bisa dicapai
                 //respectively, 1 2 3. kalo bukan ketiganya, 0
+                AngkaKhusus = cekLokasiKhusus(status,namaB,namaMyLoc);
                 if(AngkaKhusus == 1){
                     print_red(namaB);
                     // printf("%c", namaB);
