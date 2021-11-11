@@ -1,6 +1,7 @@
 // Feli
 #include "command.h"
 #include "../ADT/todoList.h"
+#include "../fungsi/getType.h"
 #include <stdio.h>
 
 void command_TO_DO(gameState status){
@@ -8,6 +9,7 @@ void command_TO_DO(gameState status){
     // dari input gamestate status, yang dipakai hanya status.todos dan status.time
     Address p;
     int i;
+    char* type;
     /* ALGORITMA */
     /* Display To Do */
     p = status.todos;
@@ -17,7 +19,8 @@ void command_TO_DO(gameState status){
     } else {
         printf("Pesanan pada To Do List:\n");
         while(p != NULL) {
-            printf("%d. %c -> %c (%c Item)\n", i, (p)->info.pickup, (p)->info.dropoff, (p)->info.item);
+            type = getType((p)->info);
+            printf("%d. %c -> %c (%s Item)\n", i, (p)->info.pickup, (p)->info.dropoff, type);
             i++;
             p = (p)->next;
         }
