@@ -27,7 +27,7 @@ void apaIsiGameState(gameState status){
     int panjangOl = status.orders.idxTail - status.orders.idxHead;
     printf("banyak order list = %d\n", panjangOl);
     for(int i = 0; i< panjangOl ;i++){
-        printf("i.\n", i);
+        printf("%d.\n", i);
         printPaket(status.orders.buffer[i]);
     }
     printf("todo list : \n");

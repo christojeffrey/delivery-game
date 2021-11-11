@@ -8,8 +8,9 @@ PALING KECIL ITU 1,1. GADA 0,0. CEK SPEK KALO RAGU
 #define LOCATION_H
 
 typedef struct{
-	int X; /* absis   */
-	int Y; /* ordinat */
+	int X; //BARIS
+	int Y; //KOLOM
+	//SORI BARISNYA 'X' DAN KOLOMNYA 'Y', BIKIN BINGUNG
     //modification of point (atau kalau gk dimodif juga gapapa, tergantung kebutuhan)
 }location;
 

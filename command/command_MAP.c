@@ -9,11 +9,12 @@
 #include <stdio.h>
 
 //FUNGSI ATAU PROSEDUR TAMBAHAN
-char isThereBuildingInThisLoc(buildingList bl, int x, int y){
+char isThereBuildingInThisLoc(buildingList bl, int B, int K){
 //mengembalikan char building jika building exist. mengembalikan '0' jika tidak ada.
 //HQ tidak termasuk (jika yg diinputkan x y itu HQ, return 0)
     for(int i = 0; i < bl.nEff;i++){
-        if(bl.buffer[i].loc.X == x && bl.buffer[i].loc.Y == y){
+        // printf("testing %d (%d,%d) dengan (%d,%d)\n", i, bl.buffer[i].loc.X, bl.buffer[i].loc.Y, x,y);
+        if(bl.buffer[i].loc.X == B && bl.buffer[i].loc.Y == K){
             return bl.buffer[i].name;
         }
     }
@@ -27,6 +28,7 @@ int cekLokasiKhusus(gameState status, char b, char m){
     //sadari kalo ini gk ngecover 'drop off sekaligus pickup'.
     // sementara urutan prioritasnya pickup, destination, bisa dicapai
     //cek pick up dari todo
+
     Address walker = status.todos;
     while(!isTodoListEmpty(walker)){
         if(walker->info.pickup == b){
@@ -63,33 +65,42 @@ void command_MAP(gameState status){
     char namaB = '0';
     int AngkaKhusus = 0;
     //ALGORITMA
-
+    //coba color
+    print_red('R');
+    print_green('G');
+    print_magenta('M');
+    print_cyan('C');
+    print_yellow('Y');
+    print_blue('B');
+    printf("\n");
+    printf("HQ(%d,%d)\n", status.hq.X,status.hq.Y);
+    
     //cari nama building myLoc dulu
-    char namaMyLoc = isThereBuildingInThisLoc(status.buildings,status.myLoc.Y,status.myLoc.X);
+    char namaMyLoc = isThereBuildingInThisLoc(status.buildings,status.myLoc.X,status.myLoc.Y);
+    printf("Myloc %c(%d,%d)\n", namaMyLoc, status.myLoc.X,status.myLoc.Y);
     //print bintang awal
-    for(int loop = 1;loop <= kolom;loop++){
+    for(int loop = 1;loop <= kolom+2;loop++){
         printf("*");
     }
     printf("\n");
     for(int b = 1; b<= baris;b++){
         printf("*");
         for(int k = 1; k <= kolom;k++){
-            //yang akan dicek(terurut), bukan building, HQ, lokasi mobita,building
+            //yang akan dicek(terurut), HQ, lokasi mobita, bukan building, building
             namaB = isThereBuildingInThisLoc(status.buildings,b,k); 
-            if(namaB == '0'){
-                printf(" ");
-            }
-
-            else if(status.hq.X == b && status.hq.Y == k){
+            
+            if(status.hq.X == b && status.hq.Y == k){
                 if(status.hq.X == status.myLoc.X && status.hq.Y == status.myLoc.Y){
                     //print HQ kuning(harusnya kuning itu myloc, dikasus ini, tapi HQ = myLoc)
                     print_yellow('8');
+                    // printf("8");
                 }
                 //if HQ itu bisa dalam jangkauan destinasi myloc, 
                 //myloc pasti bukan HQ, karena sudah ke catch diatas
                 else if(status.bangunanSekitar.contents[namaMyLoc - 'A' + 1][0]){
                     //ijo
                     print_green('8');
+                    // printf("8");
                 }
                 else{
                     //print HQ biasa(item)
@@ -98,7 +109,12 @@ void command_MAP(gameState status){
             }
             else if(status.myLoc.X == b && status.myLoc.Y == k){
                 //print kuning
+                // printf("myloc\n");
                 print_yellow(namaMyLoc); 
+                // printf("%c", namaMyLoc);
+            }
+            else if(namaB == '0'){
+                printf(" ");
             }
             else{
                 //kondisi : Building pasti memiliki nama, building bukan HQ dan bukan myLoc
@@ -107,12 +123,15 @@ void command_MAP(gameState status){
                 AngkaKhusus = cekLokasiKhusus(status,namaB,namaMyLoc);
                 if(AngkaKhusus == 1){
                     print_red(namaB);
+                    // printf("%c", namaB);
                 }
                 else if(AngkaKhusus == 2){
                     print_blue(namaB);
+                    // printf("%c", namaB);
                 }
                 else if(AngkaKhusus == 3){
                     print_green(namaB);
+                    // printf("%c", namaB);
                 }
                 else{
                     printf("%c",namaB);
@@ -122,7 +141,7 @@ void command_MAP(gameState status){
         printf("*\n");
     }
     //print bintang akhir
-    for(int loop = 1;loop <= kolom;loop++){
+    for(int loop = 1;loop <= kolom+2;loop++){
         printf("*");
     }
     printf("\n");
