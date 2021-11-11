@@ -53,6 +53,7 @@ int main(){
         
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
+            printf("------------------------------------------------\n");
             printf("masukkan command:\n");
             int command = commandInput();
 

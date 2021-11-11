@@ -27,6 +27,7 @@ int cekLokasiKhusus(gameState status, char b, char m){
     //sadari kalo ini gk ngecover 'drop off sekaligus pickup'.
     // sementara urutan prioritasnya pickup, destination, bisa dicapai
     //cek pick up dari todo
+
     Address walker = status.todos;
     while(!isTodoListEmpty(walker)){
         if(walker->info.pickup == b){
@@ -63,33 +64,42 @@ void command_MAP(gameState status){
     char namaB = '0';
     int AngkaKhusus = 0;
     //ALGORITMA
-
+    //coba color
+    print_red('R');
+    print_green('G');
+    print_magenta('M');
+    print_cyan('C');
+    print_yellow('Y');
+    print_blue('B');
+    printf("\n");
+    printf("HQ(%d,%d)\n", status.hq.X,status.hq.Y);
+    printf("Myloc(%d,%d)\n", status.myLoc.X,status.myLoc.Y);
+    
     //cari nama building myLoc dulu
     char namaMyLoc = isThereBuildingInThisLoc(status.buildings,status.myLoc.Y,status.myLoc.X);
     //print bintang awal
-    for(int loop = 1;loop <= kolom;loop++){
+    for(int loop = 1;loop <= kolom+2;loop++){
         printf("*");
     }
     printf("\n");
     for(int b = 1; b<= baris;b++){
         printf("*");
         for(int k = 1; k <= kolom;k++){
-            //yang akan dicek(terurut), bukan building, HQ, lokasi mobita,building
+            //yang akan dicek(terurut), HQ, lokasi mobita, bukan building, building
             namaB = isThereBuildingInThisLoc(status.buildings,b,k); 
-            if(namaB == '0'){
-                printf(" ");
-            }
-
-            else if(status.hq.X == b && status.hq.Y == k){
+            
+            if(status.hq.X == b && status.hq.Y == k){
                 if(status.hq.X == status.myLoc.X && status.hq.Y == status.myLoc.Y){
                     //print HQ kuning(harusnya kuning itu myloc, dikasus ini, tapi HQ = myLoc)
                     print_yellow('8');
+                    // printf("8");
                 }
                 //if HQ itu bisa dalam jangkauan destinasi myloc, 
                 //myloc pasti bukan HQ, karena sudah ke catch diatas
                 else if(status.bangunanSekitar.contents[namaMyLoc - 'A' + 1][0]){
                     //ijo
                     print_green('8');
+                    // printf("8");
                 }
                 else{
                     //print HQ biasa(item)
@@ -98,21 +108,28 @@ void command_MAP(gameState status){
             }
             else if(status.myLoc.X == b && status.myLoc.Y == k){
                 //print kuning
+                printf("myloc\n");
                 print_yellow(namaMyLoc); 
+                // printf("%c", namaMyLoc);
+            }
+            else if(namaB == '0'){
+                printf(" ");
             }
             else{
                 //kondisi : Building pasti memiliki nama, building bukan HQ dan bukan myLoc
                 //cek apakah namaB ada di pick up, destination drop off, atau bisa dicapai
                 //respectively, 1 2 3. kalo bukan ketiganya, 0
-                AngkaKhusus = cekLokasiKhusus(status,namaB,namaMyLoc);
                 if(AngkaKhusus == 1){
                     print_red(namaB);
+                    // printf("%c", namaB);
                 }
                 else if(AngkaKhusus == 2){
                     print_blue(namaB);
+                    // printf("%c", namaB);
                 }
                 else if(AngkaKhusus == 3){
                     print_green(namaB);
+                    // printf("%c", namaB);
                 }
                 else{
                     printf("%c",namaB);
@@ -122,7 +139,7 @@ void command_MAP(gameState status){
         printf("*\n");
     }
     //print bintang akhir
-    for(int loop = 1;loop <= kolom;loop++){
+    for(int loop = 1;loop <= kolom+2;loop++){
         printf("*");
     }
     printf("\n");
