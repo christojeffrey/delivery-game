@@ -27,7 +27,7 @@ void command_MOVE(gameState* status) {
         /* Time travel */
         status->time += 1;
         /* Updating To Do */
-        while (oLHEAD(status->orders).t <= status->time) {
+        while (!isOrderListEmpty(status->orders) && (oLHEAD(status->orders).t <= status->time)) {
             dequeueOrderList(&(status->orders), &paket);
             insertLastTodoList(&(status->todos), paket);
         }

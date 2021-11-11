@@ -33,7 +33,7 @@ void command_BUY(gameState* status){
                     if(status->money < 800){
                         printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
                         printf("sedangkan harga gadget adalah %d Yen.\n", harga);
-                        printf("Uang yang kamu miliki tidak mencukupi.");
+                        printf("Uang yang kamu miliki tidak mencukupi.\n");
                     }
                     else{
                         //uang mencukupi
@@ -49,7 +49,7 @@ void command_BUY(gameState* status){
                     if(status->money < harga){
                         printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
                         printf("sedangkan harga gadget adalah %d Yen.\n", harga);
-                        printf("Uang yang kamu miliki tidak mencukupi.");
+                        printf("Uang yang kamu miliki tidak mencukupi.\n");
                     }
                     else{
                         //uang mencukupi
@@ -66,7 +66,7 @@ void command_BUY(gameState* status){
                     if(status->money < 800){
                         printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
                         printf("sedangkan harga gadget adalah %d Yen.\n", harga);
-                        printf("Uang yang kamu miliki tidak mencukupi.");
+                        printf("Uang yang kamu miliki tidak mencukupi.\n");
                     }
                     else{
                         //uang mencukupi
@@ -82,7 +82,7 @@ void command_BUY(gameState* status){
                     if(status->money < 800){
                         printf("Uang kamu sebelum membeli adalah %d,\n", status->money);
                         printf("sedangkan harga gadget adalah %d Yen.\n", harga);
-                        printf("Uang yang kamu miliki tidak mencukupi.");
+                        printf("Uang yang kamu miliki tidak mencukupi.\n");
                     }
                     else{
                         //uang mencukupi
@@ -109,7 +109,7 @@ void command_BUY(gameState* status){
     }
     else{ //command tidak dijalankan di hq
         printf("Maaf, kamu tidak bisa membeli gadget saat ini,\n");
-        printf("kamu hanya bisa membeli gadget saat berada di HQ.");
+        printf("kamu hanya bisa membeli gadget saat berada di HQ.\n");
 
     }
 }
