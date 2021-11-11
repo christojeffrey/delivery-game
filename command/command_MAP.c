@@ -49,6 +49,11 @@ int cekLokasiKhusus(gameState status, char b, char m){
     //jika m = 'C', i = 3
     //dst
     int j = b - 'A' + 1;
+
+    //kondisi khusus
+    if(status.myLoc.X == status.hq.X && status.myLoc.Y == status.hq.Y){
+        i = 0;
+    }
     if(status.bangunanSekitar.contents[i][j] == 1){
         return 3;
     }
