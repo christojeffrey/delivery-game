@@ -14,7 +14,7 @@ void command_DROP_OFF(gameState* status){
     /* ALGORITMA */
     currLoc = getLoc(status->myLoc, status->buildings);
     paket = status->tas.buffer[status->tas.idxTop];
-    if (paket.dropoff = currLoc) {
+    if (paket.dropoff == currLoc) {
         if (paket.item == 'N') {
             uang = 200;
         } else if (paket.item == 'H') {
