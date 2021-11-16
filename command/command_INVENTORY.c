@@ -11,7 +11,7 @@ void command_INVENTORY(gameState* status){
     int counter = 1; //untung menyimpan nomor
     int JumlahItem = 0;
     for(int b = 0; b< 4;b++){
-        JumlahItem = status->inventory.items[b];
+        JumlahItem += status->inventory.items[b];
         for(int k = 1;k <= JumlahItem;k++){
             if(b == 0){
                 //gadget = 
