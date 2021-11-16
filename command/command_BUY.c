@@ -5,14 +5,14 @@
 #include<stdio.h>
 void command_BUY(gameState* status){
     //cek apakah command dijalankan ketika sedang di hq.
-    if(status->myLoc.X == status->hq.X && status->myLoc.Y == status->myLoc.Y){
+    if(status->myLoc.X == status->hq.X && status->myLoc.Y == status->hq.Y){
         printf("Uang anda sekarang : %d Yen\n", status->money);
         printf("gadget yang tersedia : \n");
         printf("1. Kain Pembungkus Waktu (800 Yen)\n");
         printf("2. Senter Pembesar (1200 Yen)\n");
         printf("3. Pintu Kemana Saja (1500 Yen)\n");
         printf("4. Mesin Waktu (3000 Yen)\n");
-        printf("Gadget mana yang ingin Anda beli?(ketik 0 jika tidak membeli apapun)\n");
+        printf("Gadget mana yang ingin Anda beli?(ketik 0 jika tidak membeli apapun)\n>");
         int pilihan = intInput();
         //yang perlu di cek adalah apakah uang mencukupi, apakah inventory penuh
         if (pilihan >= 1 && pilihan <= 4){

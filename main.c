@@ -34,7 +34,7 @@
 
 
 int main(){
-    printf("this is welcome screen\n");
+    printf("Nobita otw kaya\n");
     /* Bicycle ASCII Art */
     printf("              __\n    ,--.      <__)\n    `- |________7\n        |`.      |\\ \n    .--|. \\     |.\\--.\n    /   j \\ `.7__j__\\  \\ \n   |   o   | (o)____O)  |\n    \\     /   J  \\     /\n    `---'        `---'      hjw\n\n------------------------------------------------\n");
     printf("Ketik 1 untuk new game, ketik 2 untuk exit:\n> ");
@@ -48,8 +48,8 @@ int main(){
         gameStateInput(&status);
 
         //tambahi printf dari game state, untuk memastikan isinya bener.
-        apaIsiGameState(status);
-        //print game state done
+        // apaIsiGameState(status);
+        //print game state done     
         
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
@@ -58,7 +58,7 @@ int main(){
             int command = commandInput();
 
             /*+++++ MENJALANKAN COMMAND +++++*/
-            printf("command = %d\n", command);
+            // printf("command = %d\n", command);
             /* Daftar command dan angkanya: 
                 1. MOVE
                 2. PICK_UP
@@ -104,7 +104,7 @@ int main(){
             // //...
 
             // /*+++++ CEK KEBERLANGSUNGAN GAME +++++*/
-            // continueFlag = isContinue(status);
+            continueFlag = isContinue(status);
         }
     }
     else if (menuOption == 2){
