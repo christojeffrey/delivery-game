@@ -12,7 +12,12 @@ void command_MOVE(gameState* status) {
     l = getMove(status->bangunanSekitar, status->buildings, status->myLoc,status->hq);
     printf("Posisi yang dapat dicapai:\n");
     for (i=0; i<bLNEFF(l); i++) {
-        printf("%d. %c (%d,%d)\n", i+1, bLELMT(l,i).name, bLELMT(l,i).loc.X, bLELMT(l,i).loc.Y);
+        if(bLELMT(l,i).name == '!'){
+            printf("%d. HQ (%d,%d)\n", i+1, bLELMT(l,i).loc.X, bLELMT(l,i).loc.Y);
+        }
+        else{
+            printf("%d. %c (%d,%d)\n", i+1, bLELMT(l,i).name, bLELMT(l,i).loc.X, bLELMT(l,i).loc.Y);
+        }
     }
     printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n> ");
     scanf("%d", &input);
