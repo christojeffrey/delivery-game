@@ -95,23 +95,35 @@ void command_INVENTORY(gameState* status){
                 //PILIH BUILDING
                 char namaBuilding;
                 location lokasiBuilding;
+                printf("1. HQ(%d,%d)\n", status->hq.X, status->hq.Y);
                 for(int i = 0; i < status->buildingCount;i++){
                     namaBuilding = status->buildings.buffer[i].name;
-                    lokasiBuilding = status->buildings.buffer[i].loc;
-                    printf("%d. %c(%d,%d)\n", i+1, namaBuilding,lokasiBuilding.X,lokasiBuilding.Y);
+                    lokasiBuilding.X = status->buildings.buffer[i].loc.X;
+                    lokasiBuilding.Y = status->buildings.buffer[i].loc.Y;
+                    printf("%d. %c(%d,%d)\n", i+2, namaBuilding,lokasiBuilding.X,lokasiBuilding.Y);
                 }
                 printf("Pilih building\n");
                 int pilihanLokasi = intInput();
+                
                 //PINDAH MYLOC
-                if(pilihanLokasi < 0 || pilihanLokasi > status->buildingCount){
+                if(pilihanLokasi <= 0 || pilihanLokasi > status->buildingCount+1){
                     printf("pilihan tidak valid.\n");
                     printf("command berhenti. Gadget gagal digunakan\n");
                 }
-                else{
-                    status->myLoc.X = lokasiBuilding.X;
-                    status->myLoc.Y = lokasiBuilding.Y;
+                
+                if(pilihanLokasi == 1){
+                    status->myLoc.X = status->hq.X;
+                    status->myLoc.Y = status->hq.Y;
                     printf("Gadget berhasil digunakan!\n");
-                    printf("lokasimu berubah! kamu sekarang berada di %c(%d,%d).\n",namaBuilding,lokasiBuilding.X,lokasiBuilding.Y);
+                    printf("lokasimu berubah! kamu sekarang berada di HQ(%d,%d).\n",status->myLoc.X,status->myLoc.Y);
+                }
+                else{
+                    pilihanLokasi = pilihanLokasi - 2;
+                    status->myLoc.X = status->buildings.buffer[pilihanLokasi].loc.X;
+                    status->myLoc.Y = status->buildings.buffer[pilihanLokasi].loc.Y;
+                    
+                    printf("Gadget berhasil digunakan!\n");
+                    printf("lokasimu berubah! kamu sekarang berada di %c(%d,%d).\n",namaBuilding,status->myLoc.X,status->myLoc.Y);
                     status->inventory.items[idxItem] -= 1;
                 }
 
