@@ -38,6 +38,7 @@ void command_BUY(gameState* status){
                     else{
                         //uang mencukupi
                         status->money = status->money - harga;
+                        status->inventory.items[0] ++;
                         printf("Berhasil membeli gadget 1. Kain Pembungkus Waktu!\n");
                         printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
                         printf("Uang kamu berubah menjadi %d\n", status->money);
@@ -54,6 +55,7 @@ void command_BUY(gameState* status){
                     else{
                         //uang mencukupi
                         status->money = status->money - harga;
+                        status->inventory.items[1] ++;
                         printf("Berhasil membeli gadget 1. Kain Pembungkus Waktu!\n");
                         printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
 
@@ -71,6 +73,7 @@ void command_BUY(gameState* status){
                     else{
                         //uang mencukupi
                         status->money = status->money - harga;
+                        status->inventory.items[2] ++;
                         printf("Berhasil membeli gadget 3. Pintu Kemana Saja!\n");
                         printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
                         printf("Uang kamu berubah menjadi %d\n", status->money);
@@ -87,6 +90,7 @@ void command_BUY(gameState* status){
                     else{
                         //uang mencukupi
                         status->money = status->money - harga;
+                        status->inventory.items[3] ++;
                         printf("Berhasil membeli gadget 4. Mesin Waktu!\n");
                         printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
                         printf("Uang kamu berubah menjadi %d\n", status->money);
