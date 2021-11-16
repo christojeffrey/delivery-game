@@ -12,12 +12,18 @@ Word currentWord;
 char currentChar;
 
 void ignoreBlank(){
+/* memajukan karakter jika menemukan BLANK atau newline 
+   I.S. : currentChar sembarang
+   F.S. : currentChar bukan BLANK atau currentChar bukan newline atau currentChar = MARK*/
     while (currentChar == BLANK || currentChar == '\n'){
         adv();
     }
 }
 
 void emptyWord(){
+/* menghapus isi dalam currentWord
+   I.S. : currentWord sembarang
+   F.S. : currentWord menjadi kosong */
     int i;
     for (i=0; i<CAPACITY; i++){
         currentWord.contents[i] = '\0';
@@ -26,10 +32,19 @@ void emptyWord(){
 }
 
 void emptyChar(){
+/* menghapus isi dalam currentChar
+   I.S. : currentChar sembarang
+   F.S. : currentChar menjadi kosong */
     currentChar = '\0';
 }
 
 void copyWord(){
+/* mengakuisisi kata yang disimpan dalam currentWord
+   I.S. : currentChar adalah karakter pertama dalam Word
+   F.S. : currentChar = BLANK
+          currentChar = newline
+          currentChar = MARK
+          currentChar adalah karakter setelah currentChar yang lama */
     int i;
     i=0;
     emptyWord();
@@ -45,6 +60,11 @@ void copyWord(){
 }
 
 void advWord(){
+/* Akuisisi kata selanjutnya dengan menggunakan copyWord
+   I.S. : currentChar adalah karakter pertama dalam Word
+   F.S. : currentChar = MARK, maka akuisisi berhenti
+          currentChar adalah karakter setelah currentChar yang lama
+          currentWord adalah Word terakhir yang diakuisisi */
     ignoreBlank();
     if(currentChar == MARK){
         endWord = true;
@@ -55,6 +75,11 @@ void advWord(){
 }
 
 void startWord(){
+/* memulai akuisisi kata
+   I.S. : currentChar sembarang
+   F.S. : currentChar = MARK
+          currentChar karakter pertama sesudah karakter terakhir kata 
+          currentWord selesai diakuisisi */
     start();
     ignoreBlank();
     if (currentChar != MARK){
@@ -63,6 +88,12 @@ void startWord(){
 }
 
 void copyToken(){
+/* mengakuisisi angka yang disimpan dalam currentToken
+   I.S. : currentChar adalah karakter pertama dalam Token
+   F.S. : currentChar = BLANK
+          currentChar = newline
+          currentChar = MARK
+          currentChar adalah karakter setelah currentChar yang lama */
     int i;
     i=0;
     currentToken = 0;
@@ -77,6 +108,11 @@ void copyToken(){
 }
 
 void advToken(){
+/* Akuisisi angka selanjutnya dengan menggunakan copyToken
+   I.S. : currentChar adalah karakter pertama dalam Token
+   F.S. : currentChar = MARK, maka akuisisi berhenti
+          currentChar adalah karakter setelah currentChar yang lama
+          currentToken adalah angka terakhir yang diakuisisi */
     ignoreBlank();
     if(currentChar == MARK){
         endToken = true;
@@ -87,6 +123,11 @@ void advToken(){
 }
 
 void startToken(){
+/* memulai akuisisi angka
+   I.S. : currentChar sembarang
+   F.S. : currentChar = MARK
+          currentChar karakter pertama sesudah karakter terakhir Token 
+          currentWord selesai diakuisisi */
     start();
     ignoreBlank();
     if (currentChar != MARK){
