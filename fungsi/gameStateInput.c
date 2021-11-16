@@ -43,25 +43,20 @@ void gameStateInput(gameState *State1){
     //MENULISKAN UKURAN MAP DAN KOORDINAT HQ MULAI
     advToken();
     (*State1).mapHeight = currentToken;
-    printf("%d ", (*State1).mapHeight);
     advToken();
     (*State1).mapWidth = currentToken;
-    printf("%d\n", (*State1).mapWidth);
     advToken();
     (*State1).hq.X = currentToken;
     (*State1).myLoc.X = currentToken;
-    printf("%d ", (*State1).hq.X);
     advToken();
     (*State1).hq.Y = currentToken;
     (*State1).myLoc.Y = currentToken;
-    printf("%d\n", (*State1).hq.Y);
     advToken();
 
     //MENULISKAN UKURAN MAP DAN KOORDINAT HQ SELESAI
 
     //MENULISKAN LOKASI BANGUNAN MULAI
     int jumlahVar = currentToken;
-    printf("%d\n",jumlahVar);
 
     createBuildingList(&(State1->buildings), jumlahVar);
     int var = 0;
@@ -73,20 +68,15 @@ void gameStateInput(gameState *State1){
         // printf("disini aman");
         // printf("currentword content[0] = %c\n", currentWord.contents[0]);
         (*State1).buildings.buffer[var].name = currentWord.contents[0];
-        printf("%c ", (*State1).buildings.buffer[var].name);
         advToken();
         (*State1).buildings.buffer[var].loc.X= currentToken;
-        printf("%d ", (*State1).buildings.buffer[var].loc.X);
         advToken();
         (*State1).buildings.buffer[var].loc.Y = currentToken;
-        printf("%d\n", (*State1).buildings.buffer[var].loc.Y);
         var++;
     }
     //MENULISKAN LOKASI BANGUNAN SELESAI
     // printf("INPUT LOKASI BUILDING SELESAI\n");
     (*State1).bangunanSekitar.rowcolEff = jumlahVar+1;
-    printf("%d ",(*State1).bangunanSekitar.rowcolEff);
-    printf("%d\n",(*State1).bangunanSekitar.rowcolEff);
     int rowId = 0;
     int colId = 0;
     advToken();
@@ -94,36 +84,28 @@ void gameStateInput(gameState *State1){
         colId=0;
         while (colId<(*State1).bangunanSekitar.rowcolEff){
             (*State1).bangunanSekitar.contents[rowId][colId] = currentToken;
-            printf("%d ", (*State1).bangunanSekitar.contents[rowId][colId]);
             advToken();
             colId++;
         }
         rowId++;
-        printf("\n");
     }
     int jumlahOrder = currentToken;
-    printf("%d\n",jumlahOrder);
     int order = 0;
 
     CreateOrderList(&(State1 -> orders));
     while (order<jumlahOrder){
         advToken();
         (*State1).orders.buffer[order].t = currentToken;
-        printf("%d ", (*State1).orders.buffer[order].t);
         advWord();
         (*State1).orders.buffer[order].pickup = *currentWord.contents;
-        printf("%c ", (*State1).orders.buffer[order].pickup);
         advWord();
         (*State1).orders.buffer[order].dropoff = *currentWord.contents;
-        printf("%c ", (*State1).orders.buffer[order].dropoff);
         advWord();
         (*State1).orders.buffer[order].item = *currentWord.contents;
-        printf("%c ", (*State1).orders.buffer[order].item);
         if ((*State1).orders.buffer[order].item == 'P'){
             advToken();
             (*State1).orders.buffer[order].exp = currentToken;
             (*State1).orders.buffer[order].totalPerishTime = currentToken;
-            printf("%d ", (*State1).orders.buffer[order].exp);
         } else {
             (*State1).orders.buffer[order].exp = -1;
             (*State1).orders.buffer[order].totalPerishTime = -1;
@@ -135,11 +117,8 @@ void gameStateInput(gameState *State1){
         } else {
             (*State1).orders.idxTail++;
         }
-        printf("\n");
         order++;
     }
-    printf("%d\n", (*State1).orders.idxHead);
-    printf("%d\n", (*State1).orders.idxTail);
 }
 
 
