@@ -61,7 +61,51 @@ void command_MOVE(gameState* status) {
             insertLastTodoList(&(status->todos), paket);
         }
         /*updating perishable item*/
-
+        //dua tempat yang perlu di update, bag dan in progress list
+        if(!isBagEmpty(status->tas)){
+            int start = status->tas.idxTop;
+            int end = status->tas.idxTop + status->tas.bagCapacity;
+            for( int i = start; i < end;i++){
+                if(status->tas.buffer[i].item = 'P'){
+                    status->tas.buffer[i].exp -= jumlahWaktuBerjalan;
+                    if(status->tas.buffer[i].exp <= 0){
+                        //hapus
+                        for(int idel = i; idel > status->tas.idxTop;idel--){
+                            status->tas.buffer[idel] = status->tas.buffer[idel-1];
+                        }
+                        status->tas.idxTop -= 1;
+                    }
+                }
+            }
+        }
+        //cek progresslist
+        Address walker = status->inProgress;
+        Address prewalker = status->inProgress;
+        if(walker != NULL){
+            //cek elemen selain pertama
+            walker = walker->next;
+            while(walker != NULL){
+                if (walker->info.item == 'P'){
+                    walker->info.exp -= jumlahWaktuBerjalan;
+                    if(walker->info.exp <= 0){
+                        prewalker->next = walker->next;
+                        free(walker);
+                        walker = prewalker->next;
+                    }
+                }
+                prewalker = walker;
+                walker = walker->next;
+            }
+        }
+        //cek elemen pertama
+        if (status->inProgress->info.item == 'P'){
+            status->inProgress->info.exp -= jumlahWaktuBerjalan;
+            if(status->inProgress->info.exp <= 0){
+                walker = status->inProgress;
+                status->inProgress = status->inProgress->next;
+                free(walker); 
+            }
+        }
 
         printf("Mobita sekarang berada di titik %c (%d,%d)!\n", bLELMT(l, input-1).name, status->myLoc.X, status->myLoc.Y);
         printf("Waktu: %d\n", status->time);
