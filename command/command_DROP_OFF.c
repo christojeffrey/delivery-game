@@ -20,6 +20,8 @@ void command_DROP_OFF(gameState* status){
                 uang = 200;
             } else if (paket.item == 'H') {
                 uang = 400;
+                //mendapat speedboost
+                status->speedBoost += 10;
             } else if (paket.item == 'P') {
                 uang = 400;
             }
