@@ -9,8 +9,8 @@ loc (3,4)
 #ifndef BUILDING_H
 #define BUILDING_H
 
-#include "boolean.h"
-#include "location.h"
+#include "../boolean.h"
+#include "../location/location.h"
 
 typedef struct{
     char name;

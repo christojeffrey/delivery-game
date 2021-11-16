@@ -1,8 +1,8 @@
 #ifndef TODO_LIST_H
 #define TODO_LIST_H
 
-#include "boolean.h"
-#include "nodePaket.h"
+#include "../boolean.h"
+#include "../nodePaket/nodePaket.h"
 
 
 typedef Address todoList;

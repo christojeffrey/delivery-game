@@ -1,8 +1,8 @@
 #include "paket.h"
-#include "location.h"
-#include "buildingList.h"
-#include "building.h"
-#include "nearBuilding.h"
+#include "../location/location.h"
+#include "../buildingList/buildingList.h"
+#include "../building/building.h"
+#include "../nearBuilding/nearBuilding.h"
 void createPaket(paket * P, int t, char p, char d, char i, int e)
 /* Membuat paket */
 /* I.S P sembarang */

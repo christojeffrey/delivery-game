@@ -1,7 +1,7 @@
 #include "../ADT/boolean.h"
 #include "../ADT/gameState.h"
-#include "../ADT/todoList.h"
-#include "../ADT/bag.h"
+#include "../ADT/todoList/todoList.h"
+#include "../ADT/bag/bag.h"
 boolean isContinue(gameState status){
     boolean lanjut;
     lanjut = true;

@@ -1,6 +1,6 @@
 // Feli
 #include "command.h"
-#include "../ADT/todoList.h"
+#include "../ADT/todoList/todoList.h"
 #include "../fungsi/getType.h"
 #include <stdio.h>
 

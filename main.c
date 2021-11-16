@@ -4,18 +4,18 @@
 
 #include"ADT/gameState.h"
 
-#include "ADT/bag.h"
-#include "ADT/building.h"
-#include "ADT/buildingList.h"
-#include "ADT/gadgetInventory.h"
-#include "ADT/inProgressList.h"
-#include "ADT/location.h"
-#include "ADT/nearBuilding.h"
-#include "ADT/nodePaket.h"
-#include "ADT/orderList.h"
-#include "ADT/paket.h"
-#include "ADT/todoList.h"
-#include "ADT/orderList.h"
+#include "ADT/bag/bag.h"
+#include "ADT/building/building.h"
+#include "ADT/buildingList/buildingList.h"
+#include "ADT/gadgetInventory/gadgetInventory.h"
+#include "ADT/inProgressList/inProgressList.h"
+#include "ADT/location/location.h"
+#include "ADT/nearBuilding/nearBuilding.h"
+#include "ADT/nodePaket/nodePaket.h"
+#include "ADT/orderList/orderList.h"
+#include "ADT/paket/paket.h"
+#include "ADT/todoList/todoList.h"
+#include "ADT/orderList/orderList.h"
 
 //import fungsi-fungsi command
 #include "command/command.h"
@@ -50,7 +50,7 @@ int main(){
         //tambahi printf dari game state, untuk memastikan isinya bener.
         // apaIsiGameState(status);
         //print game state done     
-        
+        printf("welcome\n");
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
             printf("------------------------------------------------\n");

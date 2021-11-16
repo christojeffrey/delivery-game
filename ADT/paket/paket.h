@@ -2,10 +2,10 @@
 #ifndef __PAKET__H__
 #define __PAKET__H__
 
-#include "location.h"
-#include "buildingList.h"
-#include "building.h"
-#include "nearBuilding.h"
+#include "../location/location.h"
+#include "../buildingList/buildingList.h"
+#include "../building/building.h"
+#include "../nearBuilding/nearBuilding.h"
 typedef struct paket
 {
     int t;

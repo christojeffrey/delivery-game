@@ -1,8 +1,8 @@
 #ifndef MACHINE_H
 #define MACHINE_H 
 
-#include "../ADT/boolean.h"
-#include "lettermachine.h"
+#include "../boolean.h"
+#include "../lettermachine/lettermachine.h"
 
 typedef struct {
     char contents[CAPACITY];

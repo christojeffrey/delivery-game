@@ -1,10 +1,10 @@
 #ifndef ORDER_LIST_H
 #define ORDER_LIST_H
 
-#include "boolean.h"
+#include "../boolean.h"
 #include <stdlib.h>
 
-#include"paket.h"
+#include"../paket/paket.h"
  /*
  jumlah pesanan maks adalah 30. jadi ya aku kasih 40 deh.
  */

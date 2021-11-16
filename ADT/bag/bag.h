@@ -24,8 +24,8 @@ item    ada
 #ifndef BAG_H
 #define BAG_H
 
-#include "boolean.h"
-#include "paket.h"
+#include "../boolean.h"
+#include "../paket/paket.h"
 typedef struct{
     paket buffer[150];  /*tabel penyimpanan elemen */
     int idxTop;             /*alamat TOP : elemen puncak */

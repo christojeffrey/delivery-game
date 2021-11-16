@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "todoList.h"
-#include "nodePaket.h"
-#include "boolean.h"
+#include "../nodePaket/nodePaket.h"
+#include "../boolean.h"
 
 /* PROTOTYPE */
 /****************** PEMBUATAN TODO LIST KOSONG ******************/

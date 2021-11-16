@@ -8,8 +8,8 @@ contents akan bernilai 1 jika terhubung, bernilai 0 jika tidak(persis seperti in
 #ifndef NEAR_BUILDING_H
 #define NEAR_BUILDING_H
 
-#include "buildingList.h"
-#include "location.h"
+#include "../buildingList/buildingList.h"
+#include "../location/location.h"
 
 typedef struct{
    int contents[30][30];

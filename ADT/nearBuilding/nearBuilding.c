@@ -1,6 +1,6 @@
 #include "nearBuilding.h"
-#include "buildingList.h"
-#include "building.h"
+#include "../buildingList/buildingList.h"
+#include "../building/building.h"
 
 void CreatenearBuilding(int rowcol, nearBuilding *nb)
 /* Membentuk sebuah Matrix "kosong" yang siap diisi berukuran nRow x nCol di "ujung kiri" memori */

@@ -3,14 +3,14 @@
 
 //include ADT
 #include "../ADT/boolean.h"
-#include "../ADT/buildingList.h"
-#include "../ADT/orderList.h"
-#include "../ADT/gadgetInventory.h"
-#include "../ADT/bag.h"
-#include "../ADT/inProgressList.h"
-#include "../ADT/todoList.h"
-#include "../ADT/paket.h"
-#include "machine.h"
+#include "../ADT/buildingList/buildingList.h"
+#include "../ADT/orderList/orderList.h"
+#include "../ADT/gadgetInventory/gadgetInventory.h"
+#include "../ADT/bag/bag.h"
+#include "../ADT/inProgressList/inProgressList.h"
+#include "../ADT/todoList/todoList.h"
+#include "../ADT/paket/paket.h"
+#include "../ADT/machine/machine.h"
 
 #define BLANK ' '
 #define MARK ';'

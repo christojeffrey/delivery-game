@@ -10,6 +10,7 @@
     "nearbuilding.h": "c",
     "buildinglist.h": "c",
     "command.h": "c",
-    "intinput.h": "c"
+    "intinput.h": "c",
+    "inprogresslist.h": "c"
   }
 }

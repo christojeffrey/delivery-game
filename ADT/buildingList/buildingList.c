@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "buildingList.h"
-#include "building.h"
+#include "../buildingList/buildingList.h"
+#include "../building/building.h"
 #include<stdlib.h>
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create list kosong  */

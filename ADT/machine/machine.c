@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../ADT/boolean.h"
+#include "../boolean.h"
 #include "machine.h"
 
 Token currentToken;

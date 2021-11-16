@@ -2,7 +2,7 @@
 
 #include "command.h"
 
-#include "../ADT/location.h"
+#include "../ADT/location/location.h"
 
 #include "../fungsi/intInput.h"
 #include<stdio.h>

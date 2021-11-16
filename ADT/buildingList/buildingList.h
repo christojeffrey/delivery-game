@@ -3,8 +3,8 @@
 #ifndef BUILDING_LIST_H
 #define BUILDING_LIST_H
 
-#include "boolean.h"
-#include "building.h"
+#include "../boolean.h"
+#include "../building/building.h"
 typedef struct{
     building *buffer; /* memori tempat penyimpan elemen (container) */
     int nEff;       /* >=0, banyaknya elemen efektif */

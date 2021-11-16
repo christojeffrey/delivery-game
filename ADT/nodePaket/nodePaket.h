@@ -2,7 +2,7 @@
 #ifndef NODE_PAKET_H
 #define NODE_PAKET_H
 
-#include "paket.h"
+#include "../paket/paket.h"
 #include <stdlib.h>
 
 typedef struct NodePaket* Address;

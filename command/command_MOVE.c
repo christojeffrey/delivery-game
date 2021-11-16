@@ -1,6 +1,6 @@
 // Feli
 #include "command.h"
-#include "../ADT/nearBuilding.h"
+#include "../ADT/nearBuilding/nearBuilding.h"
 #include <stdio.h>
 
 void command_MOVE(gameState* status) {

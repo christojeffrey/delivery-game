@@ -2,7 +2,7 @@
 #include "command.h"
 
 #include "../ADT/boolean.h"
-#include "../ADT/nodePaket.h"
+#include "../ADT/nodePaket/nodePaket.h"
 
 #include "../pcolor/pcolor.h"
 
@@ -71,18 +71,18 @@ void command_MAP(gameState status){
     int AngkaKhusus = 0;
     //ALGORITMA
     //coba color
-    print_red('R');
-    print_green('G');
-    print_magenta('M');
-    print_cyan('C');
-    print_yellow('Y');
-    print_blue('B');
-    printf("\n");
-    printf("HQ(%d,%d)\n", status.hq.X,status.hq.Y);
+    // print_red('R');
+    // print_green('G');
+    // print_magenta('M');
+    // print_cyan('C');
+    // print_yellow('Y');
+    // print_blue('B');
+    // printf("\n");
+    // printf("HQ(%d,%d)\n", status.hq.X,status.hq.Y);
     
     //cari nama building myLoc dulu
     char namaMyLoc = isThereBuildingInThisLoc(status.buildings,status.myLoc.X,status.myLoc.Y);
-    printf("Myloc %c(%d,%d)\n", namaMyLoc, status.myLoc.X,status.myLoc.Y);
+    // printf("Myloc %c(%d,%d)\n", namaMyLoc, status.myLoc.X,status.myLoc.Y);
     //print bintang awal
     for(int loop = 1;loop <= kolom+2;loop++){
         printf("*");

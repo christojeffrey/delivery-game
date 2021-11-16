@@ -3,8 +3,8 @@
 #ifndef IN_PROGRESS_LIST_H
 #define IN_PROGRESS_LIST_H
 
-#include "boolean.h" 
-#include "nodePaket.h"
+#include "../boolean.h" 
+#include "../nodePaket/nodePaket.h"
 
 
 typedef Address inProgressList;

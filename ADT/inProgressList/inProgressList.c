@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "inProgressList.h"
-#include "nodePaket.h"
+#include "../nodePaket/nodePaket.h"
 
 /* PROTOTYPE */
 /****************** PEMBUATAN IN PROGRESS LIST KOSONG ******************/
