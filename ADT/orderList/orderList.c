@@ -39,6 +39,7 @@ void enqueueOrderList(orderList *ol, paket val)
     if (isOrderListEmpty(*ol)){
         oLIDX_HEAD(*ol) = 0;
         oLIDX_TAIL(*ol) = 0;
+        (*ol).buffer[0] = val;
     } else { 
         if (oLIDX_TAIL(*ol) == 40 - 1) for (int i = oLIDX_HEAD(*ol);  i < oLIDX_TAIL(*ol); i++) (*ol).buffer[i-oLIDX_HEAD(*ol)] = (*ol).buffer[i]; //kalo mentok geser duls ges
         int i = 0;
@@ -46,7 +47,7 @@ void enqueueOrderList(orderList *ol, paket val)
         {
             i++;
         }
-        for (int j = lengthOrderList(*ol) - 1; j > i; j--) (*ol).buffer[j] = (*ol).buffer[j-1];
+        for (int j = lengthOrderList(*ol); j > i; j--) (*ol).buffer[j] = (*ol).buffer[j-1];
         (*ol).buffer[i] = val;
         oLIDX_TAIL(*ol)++;
     }
