@@ -9,6 +9,7 @@
 #include "../ADT/bag.h"
 #include "../ADT/inProgressList.h"
 #include "../ADT/todoList.h"
+#include "../ADT/paket.h"
 #include "machine.h"
 
 #define BLANK ' '
@@ -93,30 +94,33 @@ void gameStateInput(gameState *State1){
     int order = 0;
 
     CreateOrderList(&(State1 -> orders));
+    paket temp;
+    int temp_time;
+    char temp_pickup;
+    char temp_dropoff;
+    char temp_item;
+    int temp_exp;
+    int temp_totalPerishTime;
     while (order<jumlahOrder){
         advToken();
-        (*State1).orders.buffer[order].t = currentToken;
+        temp_time = currentToken;
         advWord();
-        (*State1).orders.buffer[order].pickup = *currentWord.contents;
+        temp_pickup = *currentWord.contents;
         advWord();
-        (*State1).orders.buffer[order].dropoff = *currentWord.contents;
+        temp_dropoff = *currentWord.contents;
         advWord();
-        (*State1).orders.buffer[order].item = *currentWord.contents;
-        if ((*State1).orders.buffer[order].item == 'P'){
+        temp_item = *currentWord.contents;
+        if (temp_item == 'P'){
             advToken();
-            (*State1).orders.buffer[order].exp = currentToken;
-            (*State1).orders.buffer[order].totalPerishTime = currentToken;
+            temp_exp = currentToken;
+            temp_totalPerishTime = currentToken;
         } else {
-            (*State1).orders.buffer[order].exp = -1;
-            (*State1).orders.buffer[order].totalPerishTime = -1;
+            temp_exp = -1;
+            temp_totalPerishTime = -1;
         }
 
-        if ((*State1).orders.idxTail==-1 && (*State1).orders.idxHead==-1){
-            (*State1).orders.idxTail = 0;
-            (*State1).orders.idxHead = 0;
-        } else {
-            (*State1).orders.idxTail++;
-        }
+        createPaket(&temp,temp_time,temp_pickup,temp_dropoff,temp_item,temp_exp);
+        enqueueOrderList(&(State1->orders),temp);
         order++;
     }
 }
