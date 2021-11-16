@@ -15,18 +15,27 @@ void command_PICK_UP(gameState* status) {
     printf("currLoc: %c\n", currLoc);
     p = status->todos;
     found = false;
-    while(p != NULL && !found) {
-        if ((p)->info.pickup == currLoc) {
-            paket = (p)->info;
-            if ((p)->next != NULL) {
-                (p)->next = ((p)->next)->next;
-            } else {
-                deleteLastTodoList(&(status->todos), &paket);
-            }
-            found = true;
-        }
-        p = (p)->next;
+    if (p->info.pickup == currLoc){
+        found = true;
+        deleteFirstTodoList(&(status->todos),&paket);
     }
+    else {
+        while((p)->next != NULL && !found) {
+            if ((p->next)->info.pickup == currLoc) {
+                paket = (p->next)->info;
+                (p)->next = ((p)->next)->next;
+                found = true;
+            } else {
+                p = (p)->next;
+            }
+        }
+    }
+
+    if (p->info.pickup == currLoc){
+        found = true;
+        deleteLastTodoList(&(status->todos),&paket);
+    }
+
     if (found) {
         pushBag(&(status->tas), paket);
         insertFirstInProgressList(&(status->inProgress), paket);
