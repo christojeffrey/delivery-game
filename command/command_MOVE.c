@@ -39,9 +39,10 @@ void command_MOVE(gameState* status) {
                 }
             }
         }
+        printf("jumlah waktu berjalan = %d\n", jumlahWaktuBerjalan);
         // kasus pertama, jika tidak ada heavy item di dalam bag
         if(jumlahWaktuBerjalan == 0){
-            if(status->speedBoost != 0){
+            if(status->speedBoost > 0){
                 status->speedBoost -= 0.5;
                 if(roundf(status->speedBoost) == status->speedBoost){
                     jumlahWaktuBerjalan += 1;
@@ -52,8 +53,7 @@ void command_MOVE(gameState* status) {
                 //gapunya speedboost;
                 jumlahWaktuBerjalan += 1;
             }
-        }
-        // kasus kedua, ada heavy item di dalam bag
+        }// kasus kedua, ada heavy item di dalam bag
         else{
             //ditambahkan 1 lagi, yaitu waktu berjalan normal
             jumlahWaktuBerjalan++;
@@ -68,6 +68,7 @@ void command_MOVE(gameState* status) {
         /*updating perishable item*/
         //dua tempat yang perlu di update, bag dan in progress list
         if(!isBagEmpty(status->tas)){
+            printf("Bag tidak kosong, updating bag\n");
             int start = status->tas.idxTop;
             int end = status->tas.idxTop + status->tas.bagCapacity;
             for( int i = start; i < end;i++){
@@ -87,6 +88,7 @@ void command_MOVE(gameState* status) {
         Address walker = status->inProgress;
         Address prewalker = status->inProgress;
         if(walker != NULL){
+            printf("in progress tidak kosong, updating bag\n");
             //cek elemen selain pertama
             walker = walker->next;
             while(walker != NULL){
@@ -101,14 +103,14 @@ void command_MOVE(gameState* status) {
                 prewalker = walker;
                 walker = walker->next;
             }
-        }
-        //cek elemen pertama
-        if (status->inProgress->info.item == 'P'){
-            status->inProgress->info.exp -= jumlahWaktuBerjalan;
-            if(status->inProgress->info.exp <= 0){
-                walker = status->inProgress;
-                status->inProgress = status->inProgress->next;
-                free(walker); 
+            //cek elemen pertama
+            if (status->inProgress->info.item == 'P'){
+                status->inProgress->info.exp -= jumlahWaktuBerjalan;
+                if(status->inProgress->info.exp <= 0){
+                    walker = status->inProgress;
+                    status->inProgress = status->inProgress->next;
+                    free(walker); 
+                }
             }
         }
 

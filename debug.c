@@ -24,10 +24,10 @@ void apaIsiGameState(gameState status){
     printf("myloc = (%d, %d)\n", status.myLoc.X, status.myLoc.Y);
     printf("hq = (%d, %d)\n", status.hq.X, status.hq.Y);
     printf("orderlist:\n");
-    int panjangOl = status.orders.idxTail - status.orders.idxHead;
+    int panjangOl = status.orders.idxTail - status.orders.idxHead + 1;
     printf("banyak order list = %d\n", panjangOl);
     for(int i = 0; i< panjangOl ;i++){
-        printf("%d.\n", i);
+        printf("%d.\n", i+1);
         printPaket(status.orders.buffer[i]);
     }
     printf("todo list : \n");
