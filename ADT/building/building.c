@@ -8,6 +8,7 @@ building makeBuilding(char n,location l)
     Nama(B) = n;
     Absis(B) = l.X;
     Ordinat(B) = l.Y;
+    return B;
 }
 
 boolean inTheSameTiles (building P1, building P2)
