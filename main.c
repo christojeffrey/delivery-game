@@ -48,12 +48,13 @@ int main(){
         gameStateInput(&status);
 
         //tambahi printf dari game state, untuk memastikan isinya bener.
-        apaIsiGameState(status);
+        // apaIsiGameState(status);
         //print game state done     
         printf("welcome\n");
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
             printf("------------------------------------------------\n");
+            // apaIsiGameState(status);
             printf("masukkan command:\n>");
             int command = commandInput();
 

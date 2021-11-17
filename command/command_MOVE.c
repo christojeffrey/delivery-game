@@ -70,7 +70,7 @@ void command_MOVE(gameState* status) {
         /*updating perishable item*/
         //dua tempat yang perlu di update, bag dan in progress list
         if(!isBagEmpty(status->tas)){
-            printf("Bag tidak kosong, updating bag\n");
+            // printf("Bag tidak kosong, updating bag\n");
             int start = status->tas.idxTop;
             int end = status->tas.idxTop + status->tas.bagCapacity;
             for( int i = start; i < end;i++){
@@ -90,7 +90,7 @@ void command_MOVE(gameState* status) {
         Address walker = status->inProgress;
         Address prewalker = status->inProgress;
         if(walker != NULL){
-            printf("in progress tidak kosong, updating bag\n");
+            // printf("in progress tidak kosong, updating bag\n");
             //cek elemen selain pertama
             walker = walker->next;
             while(walker != NULL){
@@ -110,6 +110,7 @@ void command_MOVE(gameState* status) {
                 status->inProgress->info.exp -= jumlahWaktuBerjalan;
                 if(status->inProgress->info.exp <= 0){
                     walker = status->inProgress;
+                    printf("Ada paket perishable yang dihapus karena sudah melewati waktu,\n dari %c ke %c\n", walker->info.pickup, walker->info.dropoff);
                     status->inProgress = status->inProgress->next;
                     free(walker); 
                 }

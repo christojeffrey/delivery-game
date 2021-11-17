@@ -23,13 +23,16 @@ void apaIsiGameState(gameState status){
     printf("speedboost = %.2f\n", status.speedBoost);
     printf("myloc = (%d, %d)\n", status.myLoc.X, status.myLoc.Y);
     printf("hq = (%d, %d)\n", status.hq.X, status.hq.Y);
+    printf("==========================\n");
     printf("orderlist:\n");
     int panjangOl = status.orders.idxTail - status.orders.idxHead + 1;
+    int offside = status.orders.idxHead;
     printf("banyak order list = %d\n", panjangOl);
     for(int i = 0; i< panjangOl ;i++){
         printf("%d.\n", i+1);
-        printPaket(status.orders.buffer[i]);
+        printPaket(status.orders.buffer[i + offside]);
     }
+    printf("==========================\n");
     printf("todo list : \n");
     int counter = 1;
     Address p = status.todos;
@@ -42,6 +45,7 @@ void apaIsiGameState(gameState status){
         }
         printPaket(p->info);
     }
+    printf("==========================\n");
     printf("in progress List:\n");
     counter = 1;
     p = status.inProgress;
@@ -54,11 +58,13 @@ void apaIsiGameState(gameState status){
         }
         printPaket(p->info);
     }
+    printf("==========================\n");
     printf("bag:\n");
     for(int b = 0; b<= status.tas.idxTop;b++){
         printf("%d. \n", b);
         printPaket(status.tas.buffer[b]);
     }
+    printf("==========================\n");
     printf("gadget inventory:[");
     for(int b = 0; b < 4; b++){
         printf("%d",status.inventory.items[b]);
