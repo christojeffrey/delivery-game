@@ -28,11 +28,6 @@
 
 #include<stdio.h>
 
-
-#include "debug.h"
-
-
-
 int main(){
     printf("~ Mobita OTW Kaya ~\n\n");
     /* Bicycle ASCII Art */
@@ -45,15 +40,8 @@ int main(){
         boolean continueFlag = true;
 
         printf("Loading game...\n");
-        gameStateInput(&status);
-
-        //tambahi printf dari game state, untuk memastikan isinya bener.
-        // apaIsiGameState(status);
-        //print game state done     
-        printf("Welcome\n");
-        //sementara
-        status.money = 999999;
-        printf("uang kamu banyak hehe, coba cek BUY\n");
+        gameStateInput(&status);  
+        printf("Welcome!\n");
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
             printf("------------------------------------------------\n");
