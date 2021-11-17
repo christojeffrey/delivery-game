@@ -55,6 +55,8 @@ void command_MOVE(gameState* status) {
             }
         }// kasus kedua, ada heavy item di dalam bag
         else{
+            //jika ada heavy item di dalam tas, efek speedbost akan langsung hilang
+            status->speedBoost = 0;
             //ditambahkan 1 lagi, yaitu waktu berjalan normal
             jumlahWaktuBerjalan++;
         }
