@@ -6,7 +6,7 @@
 
 void displayItem(paket p) {
     int i = 1;
-    printf("%c Item (Tujuan: %c)\n", pTIPE(p), pDROP_OFF(p));
+    printf("Item yang di pick up dari: %c (Tujuan: %c) dengan tipe item: %c \n", pPICK_UP(p), pDROP_OFF(p), pTIPE(p));
 }
 
 int main () {
