@@ -34,7 +34,7 @@
 
 
 int main(){
-    printf("Nobita otw kaya\n");
+    printf("~ Mobita OTW Kaya ~\n\n");
     /* Bicycle ASCII Art */
     printf("              __\n    ,--.      <__)\n    `- |________7\n        |`.      |\\ \n    .--|. \\     |.\\--.\n    /   j \\ `.7__j__\\  \\ \n   |   o   | (o)____O)  |\n    \\     /   J  \\     /\n    `---'        `---'      hjw\n\n------------------------------------------------\n");
     printf("Ketik 1 untuk new game, ketik 2 untuk exit:\n> ");
@@ -44,18 +44,18 @@ int main(){
         gameState status;
         boolean continueFlag = true;
 
-        printf("loading game...\n");
+        printf("Loading game...\n");
         gameStateInput(&status);
 
         //tambahi printf dari game state, untuk memastikan isinya bener.
         // apaIsiGameState(status);
         //print game state done     
-        printf("welcome\n");
+        printf("Welcome\n");
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
             printf("------------------------------------------------\n");
             // apaIsiGameState(status);
-            printf("masukkan command:\n>");
+            printf("Masukkan command:\n> ");
             int command = commandInput();
 
             /*+++++ MENJALANKAN COMMAND +++++*/

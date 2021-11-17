@@ -1,6 +1,7 @@
 // Feli
 #include "command.h"
 #include <stdio.h>
+#include "../fungsi/getType.h"
 
 void command_IN_PROGRESS(gameState status) {
     /* KAMUS LOKAL */
@@ -12,8 +13,8 @@ void command_IN_PROGRESS(gameState status) {
     p = status.inProgress;
     i = 1;
     while(p != NULL) {
-        printf("%d. %c Item (Tujuan: %c)", i, p->info.item, p->info.dropoff);
-        if(p->info.item == 'P'){
+        printf("%d. %s Item (Tujuan: %c)", i, getType(p->info), p->info.dropoff);
+        if(p->info.item == 'P') {
             printf(", expire dalam %d waktu", p->info.exp);
         }
         printf("\n");

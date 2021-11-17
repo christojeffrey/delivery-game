@@ -20,7 +20,11 @@ void command_TO_DO(gameState status){
         printf("Pesanan pada To Do List:\n");
         while(p != NULL) {
             type = getType((p)->info);
-            printf("%d. %c -> %c (%s Item)\n", i, (p)->info.pickup, (p)->info.dropoff, type);
+            printf("%d. %c -> %c (%s Item", i, (p)->info.pickup, (p)->info.dropoff, type);
+            if ((p)->info.item == 'P') {
+                printf(", sisa waktu %d", (p)->info.exp);
+            }
+            printf(")\n");
             i++;
             p = (p)->next;
         }

@@ -1,6 +1,7 @@
 // Feli
 #include "command.h"
 #include "../fungsi/gameStateInput.h"
+#include "../fungsi/getType.h"
 #include <stdio.h>
 #include "../fungsi/getLoc.h"
 
@@ -20,15 +21,18 @@ void command_DROP_OFF(gameState* status){
                 uang = 200;
             } else if (paket.item == 'H') {
                 uang = 400;
-                //mendapat speedboost
+                // mendapat speedboost
                 status->speedBoost += 10;
             } else if (paket.item == 'P') {
                 uang = 400;
+            } else if (paket.item == 'V') {
+                uang = 600;
+                // ability return to sender
             }
             popBag(&(status->tas), &paket);
             deleteFirstInProgressList(&(status->inProgress), &paket);
             status->money += uang;
-            printf("Pesanan %c Item berhasil diantarkan!\n", paket.item);
+            printf("Pesanan %s Item berhasil diantarkan!\n", getType(paket));
             printf("Uang yang didapatkan: %d Yen\n", uang);
         } else {
             printf("Tidak ada pesanan yang dapat diantarkan!\n");
