@@ -16,44 +16,46 @@ void command_PICK_UP(gameState* status) {
         printf("Tas Mobita penuh!\n");
     } else {
         currLoc = getLoc(status->myLoc, status->buildings);
-        prev = status->todos;
-        p = prev->next;
         found = false;
-        /* BONUSSSSSS */
-        // Cek ada VIP ngga
-        // Di tas
         VIPtas = false;
-        if (!isBagEmpty(status->tas)) {
-            for (int i = status->tas.idxTop; i>=0; i--) {
-                if (status->tas.buffer[i].item == 'V') {
-                    VIPtas = true;
-                }
-            }
-        }
         VIP = false;
-        if (!isTodoListEmpty(prev)) {
-            // Cek elemen pertama
-            if (prev->info.item == 'V') {
-                VIP = true;
-                if (prev->info.pickup == currLoc) {
-                    found = true;
-                    deleteFirstTodoList(&(status->todos),&paket);
-                }
-            }
-            // Cek elemen sisa
-            while (p != NULL && !found) {
-                if ((p)->info.item == 'V') {
-                    // activate VIP status
-                    VIP = true;
-                    if ((p)->info.pickup == currLoc) {  
-                        (prev)->next = p->next;
-                        paket = (p)->info;
-                        found = true;
-                        free(p);
+        if (!isTodoListEmpty(status->todos)) {
+            prev = status->todos;
+            p = prev->next;
+            /* BONUSSSSSS */
+            // Cek ada VIP ngga
+            // Di tas
+            if (!isBagEmpty(status->tas)) {
+                for (int i = status->tas.idxTop; i>=0; i--) {
+                    if (status->tas.buffer[i].item == 'V') {
+                        VIPtas = true;
                     }
                 }
-                prev = (prev)->next;
-                p = (p)->next;
+            }
+            if (!isTodoListEmpty(prev)) {
+                // Cek elemen pertama
+                if (prev->info.item == 'V') {
+                    VIP = true;
+                    if (prev->info.pickup == currLoc) {
+                        found = true;
+                        deleteFirstTodoList(&(status->todos),&paket);
+                    }
+                }
+                // Cek elemen sisa
+                while (p != NULL && !found) {
+                    if ((p)->info.item == 'V') {
+                        // activate VIP status
+                        VIP = true;
+                        if ((p)->info.pickup == currLoc) {  
+                            (prev)->next = p->next;
+                            paket = (p)->info;
+                            found = true;
+                            free(p);
+                        }
+                    }
+                    prev = (prev)->next;
+                    p = (p)->next;
+                }
             }
         }
         
