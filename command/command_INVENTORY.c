@@ -109,22 +109,24 @@ void command_INVENTORY(gameState* status){
                 if(pilihanLokasi <= 0 || pilihanLokasi > status->buildingCount+1){
                     printf("pilihan tidak valid.\n");
                     printf("command berhenti. Gadget gagal digunakan\n");
-                }
+                } else {
                 
-                if(pilihanLokasi == 1){
-                    status->myLoc.X = status->hq.X;
-                    status->myLoc.Y = status->hq.Y;
-                    printf("Gadget berhasil digunakan!\n");
-                    printf("lokasimu berubah! kamu sekarang berada di HQ(%d,%d).\n",status->myLoc.X,status->myLoc.Y);
-                }
-                else{
-                    pilihanLokasi = pilihanLokasi - 2;
-                    status->myLoc.X = status->buildings.buffer[pilihanLokasi].loc.X;
-                    status->myLoc.Y = status->buildings.buffer[pilihanLokasi].loc.Y;
-                    
-                    printf("Gadget berhasil digunakan!\n");
-                    printf("lokasimu berubah! kamu sekarang berada di %c(%d,%d).\n",namaBuilding,status->myLoc.X,status->myLoc.Y);
-                    status->inventory.items[idxItem] -= 1;
+                    if(pilihanLokasi == 1){
+                        status->myLoc.X = status->hq.X;
+                        status->myLoc.Y = status->hq.Y;
+                        printf("Gadget berhasil digunakan!\n");
+                        printf("lokasimu berubah! kamu sekarang berada di HQ(%d,%d).\n",status->myLoc.X,status->myLoc.Y);
+                    }
+                    else{
+                        pilihanLokasi = pilihanLokasi - 2;
+                        status->myLoc.X = status->buildings.buffer[pilihanLokasi].loc.X;
+                        status->myLoc.Y = status->buildings.buffer[pilihanLokasi].loc.Y;
+                        namaBuilding = status->buildings.buffer[pilihanLokasi].name;
+                        
+                        printf("Gadget berhasil digunakan!\n");
+                        printf("lokasimu berubah! kamu sekarang berada di %c(%d,%d).\n",namaBuilding,status->myLoc.X,status->myLoc.Y);
+                        status->inventory.items[idxItem] -= 1;
+                    }
                 }
 
             }
@@ -140,7 +142,6 @@ void command_INVENTORY(gameState* status){
                 printf("waktu saat ini berubah menjadi %d\n", status->time);
                 status->inventory.items[idxItem] -= 1;
             }
-
         }
     }
 }

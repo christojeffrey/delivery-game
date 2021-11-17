@@ -28,54 +28,59 @@ void command_PICK_UP(gameState* status) {
         }
     }
     VIP = false;
-    // Cek elemen pertama
-    if (prev->info.item == 'V') {
-        VIP = true;
-        if (prev->info.pickup == currLoc) {
-            found = true;
-            deleteFirstTodoList(&(status->todos),&paket);
-        }
-    }
-    // Cek elemen sisa
-    while (p != NULL && !found) {
-        if ((p)->info.item == 'V') {
-            // activate VIP status
+    if (!isTodoListEmpty(prev)) {
+        // Cek elemen pertama
+        if (prev->info.item == 'V') {
             VIP = true;
-            if ((p)->info.pickup == currLoc) {  
-                (prev)->next = p->next;
-                paket = (p)->info;
+            if (prev->info.pickup == currLoc) {
                 found = true;
-                free(p);
+                deleteFirstTodoList(&(status->todos),&paket);
             }
         }
-        prev = (prev)->next;
-        p = (p)->next;
+        // Cek elemen sisa
+        while (p != NULL && !found) {
+            if ((p)->info.item == 'V') {
+                // activate VIP status
+                VIP = true;
+                if ((p)->info.pickup == currLoc) {  
+                    (prev)->next = p->next;
+                    paket = (p)->info;
+                    found = true;
+                    free(p);
+                }
+            }
+            prev = (prev)->next;
+            p = (p)->next;
+        }
     }
     
     if (!VIP && !VIPtas) {
         p = status->todos;
         // baru cari yang item non-VIP
-        if (p->info.pickup == currLoc && !found){
-            found = true;
-            deleteFirstTodoList(&(status->todos),&paket);
-        }
-        else {
-            while((p)->next != NULL && !found) {
-                if ((p->next)->info.pickup == currLoc) {
-                    paket = (p->next)->info;
-                    (p)->next = ((p)->next)->next;
-                    found = true;
-                } else {
-                    p = (p)->next;
-                }
-            }
+        if (!isTodoListEmpty(p)) {
             if (p->info.pickup == currLoc && !found){
                 found = true;
-                deleteLastTodoList(&(status->todos),&paket);
+                deleteFirstTodoList(&(status->todos),&paket);
+            }
+            else {
+                while((p)->next != NULL && !found) {
+                    if ((p->next)->info.pickup == currLoc) {
+                        paket = (p->next)->info;
+                        (p)->next = ((p)->next)->next;
+                        found = true;
+                    } else {
+                        p = (p)->next;
+                    }
+                }
+                if (p->info.pickup == currLoc && !found){
+                    found = true;
+                    deleteLastTodoList(&(status->todos),&paket);
+                }
             }
         }
     }
 
+    // Output
     if (found) {
         pushBag(&(status->tas), paket);
         insertFirstInProgressList(&(status->inProgress), paket);
