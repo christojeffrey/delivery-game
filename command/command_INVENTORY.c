@@ -10,7 +10,10 @@ void command_INVENTORY(gameState* status){
     //PRINT INVENTORY
     int counter = 1; //untung menyimpan nomor
     int JumlahItem = 0;
-    for(int b = 0; b< 4;b++){
+    // for(int b = 0 ; b < 4; b++){
+    //     printf("item idx %d ada %d\n", b, status->inventory.items[b]);
+    // }
+    for(int b = 0; b < 4; b++){
         JumlahItem += status->inventory.items[b];
         for(int k = 1;k <= status->inventory.items[b];k++){
             if(b == 0){
@@ -24,6 +27,9 @@ void command_INVENTORY(gameState* status){
             else if (b == 2){
                 //gadget = 
                 printf("%d. Pintu Kemana Saja\n", counter);
+            }
+            else if(b == 3){
+                printf("%d. Mesin Waktu\n", counter);
             }
             counter += 1;
         }
@@ -65,7 +71,7 @@ void command_INVENTORY(gameState* status){
                     int expireTimeLama = status->tas.buffer[status->tas.idxTop].exp;
                     status->tas.buffer[status->tas.idxTop].exp = status->tas.buffer[status->tas.idxTop].totalPerishTime;
                     int expireTimeBaru = status->tas.buffer[status->tas.idxTop].exp;
-                    printf("Gadget berhasil digunakan!\n");
+                    printf("Gadget pembungkus waktu digunakan!\n");
                     printf("Waktu expire heavy item di top of bag berubah dari %d menjadi %d\n", expireTimeLama, expireTimeBaru);
                     status->inventory.items[idxItem] -= 1;
                 }
@@ -82,7 +88,7 @@ void command_INVENTORY(gameState* status){
                 if(status->tas.bagCapacity > 100){
                     status->tas.bagCapacity = 100;
                 }
-                printf("Gadget berhasil digunakan!\n");
+                printf("Gadget senter pembesar berhasil  digunakan!\n");
                 printf("kapasitas tasmu menjadi %d\n", status->tas.bagCapacity);
                 status->inventory.items[idxItem] -= 1;
             }
@@ -123,7 +129,7 @@ void command_INVENTORY(gameState* status){
                         status->myLoc.Y = status->buildings.buffer[pilihanLokasi].loc.Y;
                         namaBuilding = status->buildings.buffer[pilihanLokasi].name;
                         
-                        printf("Gadget berhasil digunakan!\n");
+                        printf("Gadget pintu kemana saja berhasil digunakan!\n");
                         printf("lokasimu berubah! kamu sekarang berada di %c(%d,%d).\n",namaBuilding,status->myLoc.X,status->myLoc.Y);
                         status->inventory.items[idxItem] -= 1;
                     }
@@ -138,7 +144,7 @@ void command_INVENTORY(gameState* status){
                 if (status->time < 0){
                     status->time = 0;
                 }
-                printf("Gadget berhasil digunakan!\n");
+                printf("Gadget mesin waktu berhasil digunakan!\n");
                 printf("waktu saat ini berubah menjadi %d\n", status->time);
                 status->inventory.items[idxItem] -= 1;
             }
