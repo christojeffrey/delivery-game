@@ -33,8 +33,8 @@ void command_MOVE(gameState* status) {
 
         int jumlahWaktuBerjalan = 0;
         if(!isBagEmpty(status->tas)){
-            for( int i = status->tas.idxTop; i < status->tas.idxTop + status->tas.bagCapacity;i++){
-                if(status->tas.buffer[i].item = 'H'){
+            for( int i = status->tas.idxTop; i > -1;i--){
+                if(status->tas.buffer[i].item == 'H'){
                     jumlahWaktuBerjalan++;
                 }
             }
@@ -72,7 +72,7 @@ void command_MOVE(gameState* status) {
             int start = status->tas.idxTop;
             int end = status->tas.idxTop + status->tas.bagCapacity;
             for( int i = start; i < end;i++){
-                if(status->tas.buffer[i].item = 'P'){
+                if(status->tas.buffer[i].item == 'P'){
                     status->tas.buffer[i].exp -= jumlahWaktuBerjalan;
                     if(status->tas.buffer[i].exp <= 0){
                         //hapus
