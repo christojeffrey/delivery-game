@@ -21,7 +21,7 @@ boolean isBagEmpty(bag b)
 boolean isBagFull(bag b)
 /* Mengirim true jika idxTop+1 > bagCapacity bag penuh */
 {
-    return((b).idxTop+1 > (b).bagCapacity);
+    return((b).idxTop+1 >= (b).bagCapacity);
 }
 
 /* ************ Menambahkan sebuah elemen ke Stack ************ */
