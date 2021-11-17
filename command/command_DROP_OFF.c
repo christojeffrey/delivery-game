@@ -25,6 +25,8 @@ void command_DROP_OFF(gameState* status){
                 status->speedBoost += 10;
             } else if (paket.item == 'P') {
                 uang = 400;
+                //capacity bag bertambah 1
+                status->tas.bagCapacity += 1;
             } else if (paket.item == 'V') {
                 uang = 600;
                 // ability return to sender

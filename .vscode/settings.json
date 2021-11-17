@@ -11,6 +11,7 @@
     "buildinglist.h": "c",
     "command.h": "c",
     "intinput.h": "c",
-    "inprogresslist.h": "c"
+    "inprogresslist.h": "c",
+    "iscontinue.h": "c"
   }
 }
