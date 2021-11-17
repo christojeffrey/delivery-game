@@ -97,7 +97,7 @@ void command_INVENTORY(gameState* status){
                 // Pintu Kemana Saja dapat digunakan sekali untuk berpindah ke lokasi yang
                 // diinginkan tanpa menambahkan unit waktu.
                 //LIST BUILDING
-                printf("List building yang dapat dipilih");
+                printf("List building yang dapat dipilih\n");
                 //PILIH BUILDING
                 char namaBuilding;
                 location lokasiBuilding;
@@ -108,7 +108,7 @@ void command_INVENTORY(gameState* status){
                     lokasiBuilding.Y = status->buildings.buffer[i].loc.Y;
                     printf("%d. %c(%d,%d)\n", i+2, namaBuilding,lokasiBuilding.X,lokasiBuilding.Y);
                 }
-                printf("Pilih building\n");
+                printf("Pilih building\n>");
                 int pilihanLokasi = intInput();
                 
                 //PINDAH MYLOC
