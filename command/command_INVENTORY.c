@@ -116,7 +116,6 @@ void command_INVENTORY(gameState* status){
                     printf("pilihan tidak valid.\n");
                     printf("command berhenti. Gadget gagal digunakan\n");
                 } else {
-                
                     if(pilihanLokasi == 1){
                         status->myLoc.X = status->hq.X;
                         status->myLoc.Y = status->hq.Y;
@@ -131,8 +130,8 @@ void command_INVENTORY(gameState* status){
                         
                         printf("Gadget pintu kemana saja berhasil digunakan!\n");
                         printf("lokasimu berubah! kamu sekarang berada di %c(%d,%d).\n",namaBuilding,status->myLoc.X,status->myLoc.Y);
-                        status->inventory.items[idxItem] -= 1;
                     }
+                    status->inventory.items[idxItem] -= 1;
                 }
 
             }
