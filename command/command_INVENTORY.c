@@ -71,6 +71,8 @@ void command_INVENTORY(gameState* status){
                     int expireTimeLama = status->tas.buffer[status->tas.idxTop].exp;
                     status->tas.buffer[status->tas.idxTop].exp = status->tas.buffer[status->tas.idxTop].totalPerishTime;
                     int expireTimeBaru = status->tas.buffer[status->tas.idxTop].exp;
+                    //update inprogress
+                    status->inProgress->info.exp = expireTimeBaru;
                     printf("Gadget pembungkus waktu digunakan!\n");
                     printf("Waktu expire heavy item di top of bag berubah dari %d menjadi %d\n", expireTimeLama, expireTimeBaru);
                     status->inventory.items[idxItem] -= 1;
