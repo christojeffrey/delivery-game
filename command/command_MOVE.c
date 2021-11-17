@@ -42,7 +42,7 @@ void command_MOVE(gameState* status) {
             // kasus pertama, jika tidak ada heavy item di dalam bag
             if(jumlahWaktuBerjalan == 0){
                 if(status->speedBoost > 0){
-                    printf("kamu mempunyai speedboost\n");
+                    printf("Kamu mempunyai speedboost.\n");
                     status->speedBoost -= 0.5;
                     if(roundf(status->speedBoost) == status->speedBoost){
                         jumlahWaktuBerjalan += 1;
@@ -57,7 +57,7 @@ void command_MOVE(gameState* status) {
             else{
                 //jika ada heavy item di dalam tas, efek speedbost akan langsung hilang
                 status->speedBoost = 0;
-                printf("speedboost kamu hilang, kamu membawa heavy item\n");
+                printf("Kamu berjalan lebih lama karena membawa heavy item.\n");
                 //ditambahkan 1 lagi, yaitu waktu berjalan normal
                 jumlahWaktuBerjalan++;
             }
