@@ -5,7 +5,7 @@ Tugas Besar Alstrukdat
 1. install `make` (untuk windows dengan choco, dapat menggunakan `choco install make`)
 2. run `make compile`
 3. jika tidak bisa, run `make compile2` (tergantung operating system yang digunakan)
-4. akan dibuat suatu file executable dengan nama default( default a.exe untuk windows), jalankan file tersebut
+4. akan dibuat suatu file executable dengan nama default( default a.exe untuk windows), jalankan file tersebut dengan `./a.out`
 
 
 ## K01 Kelompok 9
