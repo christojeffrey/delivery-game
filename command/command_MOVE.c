@@ -38,7 +38,7 @@ void command_MOVE(gameState* status) {
                     }
                 }
             }
-            printf("jumlah waktu berjalan = %d\n", jumlahWaktuBerjalan);
+            printf("Jumlah waktu berjalan: %d\n", jumlahWaktuBerjalan);
             // kasus pertama, jika tidak ada heavy item di dalam bag
             if(jumlahWaktuBerjalan == 0){
                 if(status->speedBoost > 0){
@@ -68,16 +68,15 @@ void command_MOVE(gameState* status) {
             }
             /*updating perishable item*/
             //dua tempat yang perlu di update, bag dan in progress list
-            if(!isBagEmpty(status->tas)){
-                // printf("Bag tidak kosong, updating bag\n");
+            if (!isBagEmpty(status->tas)) {
                 int start = status->tas.idxTop;
                 int end = status->tas.idxTop + status->tas.bagCapacity;
-                for( int i = start; i < end;i++){
-                    if(status->tas.buffer[i].item == 'P'){
+                for (int i=start; i<end; i++) {
+                    if (status->tas.buffer[i].item == 'P') {
                         status->tas.buffer[i].exp -= jumlahWaktuBerjalan;
-                        if(status->tas.buffer[i].exp <= 0){
+                        if (status->tas.buffer[i].exp <= 0) {
                             //hapus
-                            for(int idel = i; idel > status->tas.idxTop;idel--){
+                            for (int idel=i; idel>status->tas.idxTop; idel--){
                                 status->tas.buffer[idel] = status->tas.buffer[idel-1];
                             }
                             status->tas.idxTop -= 1;
@@ -89,7 +88,6 @@ void command_MOVE(gameState* status) {
             Address walker = status->inProgress;
             Address prewalker = status->inProgress;
             if(walker != NULL){
-                // printf("in progress tidak kosong, updating bag\n");
                 //cek elemen selain pertama
                 walker = walker->next;
                 while(walker != NULL){
@@ -116,7 +114,11 @@ void command_MOVE(gameState* status) {
                 }
             }
 
-            printf("Mobita sekarang berada di titik %c (%d,%d)!\n", bLELMT(l, input-1).name, status->myLoc.X, status->myLoc.Y);
+            if (bLELMT(l, input-1).name == '!') {
+                printf("Mobita sekarang berada di HQ (%d,%d)!\n", status->myLoc.X, status->myLoc.Y);
+            } else {
+                printf("Mobita sekarang berada di titik %c (%d,%d)!\n", bLELMT(l, input-1).name, status->myLoc.X, status->myLoc.Y);
+            }
             printf("Waktu: %d\n", status->time);
         }
     } 

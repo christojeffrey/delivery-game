@@ -30,7 +30,7 @@ void command_INVENTORY(gameState* status){
     }
     //PRINT INVENTORY SELESAI
     if(JumlahItem == 0){
-        printf("Kamu tidak memiliki gadget.\nAnter barang, dapet uang, beli gadget,baru bisa pake gadget, oke?\n");
+        printf("Kamu tidak memiliki gadget.\nAnter barang, dapet uang, beli gadget, baru bisa pake gadget, oke?\n");
     }
     else{
         printf("Pilih gadget yang ingin digunakan (0 untuk tidak menggunakan)\n");
