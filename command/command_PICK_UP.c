@@ -18,25 +18,26 @@ void command_PICK_UP(gameState* status) {
     } else {
         p = status->todos;
         found = false;
-        if (p->info.pickup == currLoc){
-            found = true;
-            deleteFirstTodoList(&(status->todos),&paket);
-        }
-        else {
-            while((p)->next != NULL && !found) {
-                if ((p->next)->info.pickup == currLoc) {
-                    paket = (p->next)->info;
-                    (p)->next = ((p)->next)->next;
-                    found = true;
-                } else {
-                    p = (p)->next;
-                }
+        if (!isTodoListEmpty(p)){
+            if (p->info.pickup == currLoc){
+                found = true;
+                deleteFirstTodoList(&(status->todos),&paket);
             }
-        }
+                while(p != NULL && (p)->next != NULL && !found) {
+                    if ((p->next)->info.pickup == currLoc) {
+                        paket = (p->next)->info;
+                        (p)->next = ((p)->next)->next;
+                        found = true;
+                    } else {
+                        p = (p)->next;
+                    }
+                }
+            
 
-        if (p->info.pickup == currLoc){
-            found = true;
-            deleteLastTodoList(&(status->todos),&paket);
+            if (p->info.pickup == currLoc){
+                found = true;
+                deleteLastTodoList(&(status->todos),&paket);
+            }
         }
 
         if (found) {
