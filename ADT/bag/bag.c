@@ -15,7 +15,7 @@ void CreateBag(bag *b)
 boolean isBagEmpty(bag b)
 /* Mengirim true jika bag kosong: lihat definisi di atas */
 {
-    return ((b).idxTop == -1 && (b).bagCapacity == 3);
+    return ((b).idxTop == -1);
 }
 
 boolean isBagFull(bag b)
