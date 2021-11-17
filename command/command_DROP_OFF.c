@@ -14,7 +14,7 @@ void command_DROP_OFF(gameState* status){
     int uang;
     /* ALGORITMA */
     currLoc = getLoc(status->myLoc, status->buildings);
-    if (status->tas.idxTop != -1){
+    if (!isBagEmpty(status->tas)){
         paket = status->tas.buffer[status->tas.idxTop];
         if (paket.dropoff == currLoc) {
             if (paket.item == 'N') {
@@ -38,6 +38,6 @@ void command_DROP_OFF(gameState* status){
             printf("Tidak ada pesanan yang dapat diantarkan!\n");
         }
     } else {
-        printf("Kamu belum mengambil pesanan apa apa\n");
+        printf("Kamu belum mengambil pesanan apa-apa\n");
     }
 }
