@@ -51,6 +51,9 @@ int main(){
         // apaIsiGameState(status);
         //print game state done     
         printf("Welcome\n");
+        //sementara
+        status.money = 999999;
+        printf("uang kamu banyak hehe, coba cek BUY\n");
         while(continueFlag){
             /*+++++ INPUT COMMAND +++++*/
             printf("------------------------------------------------\n");

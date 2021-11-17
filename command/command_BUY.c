@@ -56,7 +56,7 @@ void command_BUY(gameState* status){
                         //uang mencukupi
                         status->money = status->money - harga;
                         status->inventory.items[1] ++;
-                        printf("Berhasil membeli gadget 1. Kain Pembungkus Waktu!\n");
+                        printf("Berhasil membeli gadget 2. Senter Pembesar!\n");
                         printf("Gunakan command INVENTORY untuk melihat dan menggunakan gadget yang kamu miliki.\n");
 
                         printf("Uang kamu berubah menjadi %d\n", status->money);

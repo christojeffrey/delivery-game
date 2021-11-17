@@ -12,18 +12,18 @@ void command_INVENTORY(gameState* status){
     int JumlahItem = 0;
     for(int b = 0; b< 4;b++){
         JumlahItem += status->inventory.items[b];
-        for(int k = 1;k <= JumlahItem;k++){
+        for(int k = 1;k <= status->inventory.items[b];k++){
             if(b == 0){
                 //gadget = 
-                printf("%d. ",counter);
+                printf("%d. Kain Pembungkus waktu\n", counter);
             }
             else if(b == 1){
                 //gadget = 
-                printf("%d. ", counter);
+                printf("%d. Senter Pembesar\n", counter);
             }
             else if (b == 2){
                 //gadget = 
-                printf("%d. ", counter);
+                printf("%d. Pintu Kemana Saja\n", counter);
             }
             counter += 1;
         }
@@ -33,7 +33,7 @@ void command_INVENTORY(gameState* status){
         printf("Kamu tidak memiliki gadget.\nAnter barang, dapet uang, beli gadget, baru bisa pake gadget, oke?\n");
     }
     else{
-        printf("Pilih gadget yang ingin digunakan (0 untuk tidak menggunakan)\n");
+        printf("Pilih gadget yang ingin digunakan (0 untuk tidak menggunakan)\n>");
         int pilihan = intInput();
         if(pilihan > counter-1){
             printf("pilihan tidak valid.\n");
