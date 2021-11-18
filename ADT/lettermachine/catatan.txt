@@ -1,0 +1,1 @@
+ADT lettermachine digunakan untuk melengkapi ADT machine dan tidak dapat digunakan secara terpisah
