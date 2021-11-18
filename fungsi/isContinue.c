@@ -8,7 +8,8 @@ boolean isContinue(gameState status){
     lanjut = true;
     if(status.orders.idxHead == -1 && status.orders.idxTail == -1 && isTodoListEmpty(status.todos) && isBagEmpty(status.tas)){
         lanjut = false;
-        printf("game selesai");
+        printf("semua order telah selesai\n");
+        printf("sisa uang : %d\n", status.money);
     }
     return lanjut;
 }
