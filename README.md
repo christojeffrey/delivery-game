@@ -19,7 +19,7 @@ Willian Manuel Kurniawan |13520020 | implementasi ADT machine, lettermachinefung
 |Fadil Fauzani | 13520032 | implementasi ADT building, buildingList, location, nearBuilding, orderList, paket, Laporan bagian 6|
 |Felicia Sutandijo | 13520050| command MOVE, PICK_UP, DROP_OFF, TO_DO, IN_PROGRESS, Laporan bagian 4|
 |Yohana Golkaria | 13520053 | implementasi ADT bag, gadgetInventory, inProgressList, nodePaket, todoList, Laporan bagian 1, 2 |
-| Christopher Jeffrey | 13520053 | struktur dan header ADT, command MAP, BUY, INVENTORY, HELP, Laporan bagian 3, 9|
+| Christopher Jeffrey | 13520055 | struktur dan header ADT, command MAP, BUY, INVENTORY, HELP, Laporan bagian 3, 9|
 
 ## Daftar Fitur
 | Fitur | Apakah Dibuat | 
